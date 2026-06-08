@@ -1,4 +1,4 @@
-/* ── TYPEWRITER ── */
+/* ── TYPEWRITER (hero eyebrow) ── */
 (function(){
   const words=['Front-End Developer','UI Enthusiast','BSIT Student','Intern Ready'];
   let wi=0,ci=0,del=false,pause=0;
@@ -17,6 +17,46 @@
     }
   }
   tick();
+})();
+
+/* ── HERO TERMINAL (Quick Info as terminal card) ── */
+(function(){
+  const lines = [
+    `<span class="t-cmt">// andrei.js — last updated 2026</span>`,
+    ``,
+    `<span class="t-kw">const</span> <span class="t-fn">andrei</span> <span class="t-pun">= {</span>`,
+    `  <span class="t-key">name</span><span class="t-pun">:</span>       <span class="t-str">"Andrei Jovic Laurel"</span><span class="t-pun">,</span>`,
+    `  <span class="t-key">location</span><span class="t-pun">:</span>  <span class="t-str">"Porac, Pampanga, PH"</span><span class="t-pun">,</span>`,
+    `  <span class="t-key">phone</span><span class="t-pun">:</span>     <span class="t-str">"0905 442 4644"</span><span class="t-pun">,</span>`,
+    `  <span class="t-key">email</span><span class="t-pun">:</span>     <span class="t-str">"andrei.laurel.3@gmail.com"</span><span class="t-pun">,</span>`,
+    `  <span class="t-key">university</span><span class="t-pun">:</span> <span class="t-str">"HAU — 4th Year BSIT"</span><span class="t-pun">,</span>`,
+    `  <span class="t-key">stack</span><span class="t-pun">:</span>      <span class="t-pun">[</span><span class="t-str">"Angular 18"</span><span class="t-pun">,</span> <span class="t-str">"Tailwind"</span><span class="t-pun">,</span> <span class="t-str">"Node.js"</span><span class="t-pun">,</span> <span class="t-str">"MySQL"</span><span class="t-pun">],</span>`,
+    `  <span class="t-key">tools</span><span class="t-pun">:</span>      <span class="t-pun">[</span><span class="t-str">"Figma"</span><span class="t-pun">,</span> <span class="t-str">"Git"</span><span class="t-pun">,</span> <span class="t-str">"Vercel"</span><span class="t-pun">,</span> <span class="t-str">"WordPress"</span><span class="t-pun">],</span>`,
+    `  <span class="t-key">status</span><span class="t-pun">:</span>     <span class="t-str">"open to internships"</span><span class="t-pun">,</span>`,
+    `  <span class="t-key">available</span><span class="t-pun">:</span>  <span class="t-kw">true</span>`,
+    `<span class="t-pun">};</span>`,
+    ``,
+    `<span class="t-cmt">// reach me at</span>`,
+    `<span class="t-fn">console</span><span class="t-pun">.</span><span class="t-fn">log</span><span class="t-pun">(</span><span class="t-str">"andrei.laurel.3@gmail.com"</span><span class="t-pun">);</span><span class="t-cursor"></span>`,
+  ];
+
+  const body = document.getElementById('heroTermBody');
+  if (!body) return;
+  let i = 0;
+
+  function addLine() {
+    if (i >= lines.length) return;
+    const span = document.createElement('span');
+    span.className = 'tline';
+    span.innerHTML = lines[i];
+    body.appendChild(span);
+    requestAnimationFrame(() => span.classList.add('visible'));
+    i++;
+    setTimeout(addLine, 55);
+  }
+
+  // Start immediately (it's above the fold in the hero)
+  setTimeout(addLine, 600);
 })();
 
 /* ── SCROLL EVENTS ── */
@@ -39,17 +79,6 @@ const io=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* ── SKILL BAR ANIMATION ── */
-const barObs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.sbar-fill').forEach(b=>b.classList.add('animate'));
-      barObs.unobserve(e.target);
-    }
-  });
-},{threshold:0.3});
-document.querySelectorAll('.skill-bars').forEach(el=>barObs.observe(el));
 
 /* ── MOBILE MENU ── */
 function toggleMenu(){
@@ -97,7 +126,6 @@ function isValidEmail(email){
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 }
 function isValidName(name){
-  // Only letters, spaces, hyphens, apostrophes — no numbers or symbols
   return /^[a-zA-Z\s'\-]{2,60}$/.test(name);
 }
 function containsSpam(text){
@@ -105,7 +133,6 @@ function containsSpam(text){
   return spamPatterns.test(text);
 }
 
-// Clear errors on input
 ['msgName','msgEmail','msgBody'].forEach(id=>{
   document.getElementById(id).addEventListener('input', ()=> clearError(id));
 });
@@ -115,7 +142,7 @@ function checkRateLimit(){
   const now = Date.now();
   const key = 'form_submissions';
   let submissions = JSON.parse(sessionStorage.getItem(key) || '[]');
-  submissions = submissions.filter(t => now - t < 10 * 60 * 1000); // keep last 10 min
+  submissions = submissions.filter(t => now - t < 10 * 60 * 1000);
   if(submissions.length >= 3) return false;
   submissions.push(now);
   sessionStorage.setItem(key, JSON.stringify(submissions));
@@ -130,25 +157,21 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const email   = document.getElementById('msgEmail').value.trim();
   const message = document.getElementById('msgBody').value.trim();
 
-  // Clear previous errors
   ['msgName','msgEmail','msgBody'].forEach(clearError);
   let valid = true;
 
-  // Name validation
   if(!name){
     showError('msgName', 'Please enter your name.'); valid = false;
   } else if(!isValidName(name)){
     showError('msgName', 'Name should only contain letters (2–60 characters).'); valid = false;
   }
 
-  // Email validation
   if(!email){
     showError('msgEmail', 'Please enter your email.'); valid = false;
   } else if(!isValidEmail(email)){
     showError('msgEmail', 'Please enter a valid email address.'); valid = false;
   }
 
-  // Message validation
   if(!message){
     showError('msgBody', 'Please write a message.'); valid = false;
   } else if(message.length < 10){
@@ -161,14 +184,11 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
   if(!valid) return;
 
-  // Rate limit check
   if(!checkRateLimit()){
     showError('msgBody', 'Too many submissions. Please wait a few minutes before trying again.');
     return;
   }
 
-  // ── SEND VIA FORMSPREE ──
-  // Replace the action URL below with your Formspree endpoint after signing up at formspree.io
   const FORMSPREE_URL = 'https://formspree.io/f/maqzooak';
 
   const btn = document.querySelector('.msg-send-btn');
