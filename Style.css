@@ -217,6 +217,7 @@ nav{
 .chip-yellow{border-color:var(--yellow);color:var(--yellow);background:rgba(252,205,92,.08)}
 .chip-green{border-color:var(--green);color:var(--green);background:rgba(92,252,154,.08)}
 .chip-gray{border-color:var(--border2);color:var(--muted2);background:rgba(255,255,255,.03)}
+.chip-gray:hover{border-color:var(--accent);color:var(--accent);background:rgba(124,92,252,.08);cursor:default}
 
 /* ── STATS BAR ── */
 .stats-bar{
