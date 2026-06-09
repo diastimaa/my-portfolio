@@ -34,7 +34,7 @@
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="about" style="border:none;padding:0;position:relative;z-index:1">
 <div class="hero">
   <div class="hero-left">
@@ -89,7 +89,7 @@
     </div>
   </div>
 
-  <!-- ── HERO RIGHT: Terminal Card (replaces Quick Info + Core Stack) ── -->
+  <!-- HERO RIGHT: Terminal Card -->
   <div class="hero-right fade-up d3">
     <div class="hero-terminal-card">
       <div class="hero-terminal-bar">
@@ -104,7 +104,7 @@
 </div>
 </section>
 
-<!-- ── GRADIENT DIVIDER (replaces terminal-wrap strip) ── -->
+<!-- GRADIENT DIVIDER -->
 <div class="gradient-divider">
   <div class="gradient-divider-line"></div>
   <div class="gradient-divider-label">
@@ -121,7 +121,7 @@
   <div class="gradient-divider-line"></div>
 </div>
 
-<!-- ── SKILLS + EDU ── -->
+<!-- SKILLS + EDU -->
 <section id="skills" class="section-wrap alt-bg">
   <div class="sec-head reveal"><span class="sec-icon">⚡</span><span class="sec-title">Technical Skills</span><div class="sec-line"></div></div>
   <div class="skills-layout">
@@ -169,15 +169,30 @@
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
+<!-- PROJECTS -->
 <section id="projects" class="section-wrap">
   <div class="sec-head reveal"><span class="sec-icon">🗂</span><span class="sec-title">Projects</span><div class="sec-line"></div></div>
   <div class="projects-grid">
 
-    <div class="project-card reveal">
+    <!-- PROJECT 01: MedFind — fully clickable, opens live site -->
+    <a href="https://www.motherandchildpharmacy.com/" target="_blank" rel="noopener"
+       class="project-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
       <div class="proj-thumb">
         <div class="proj-num">01</div>
-        <img src="images/medfind.png" alt="MedFind Pharmacy System" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.85;"/>
+        <img src="images/medfind.png" alt="MedFind Pharmacy System"
+             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.85;"/>
+        <!-- Live badge -->
+        <div style="position:absolute;top:12px;right:14px;z-index:2;
+                    display:flex;align-items:center;gap:6px;
+                    background:rgba(7,7,13,0.75);backdrop-filter:blur(6px);
+                    border:1px solid rgba(92,252,154,0.35);border-radius:6px;
+                    padding:4px 10px;font-family:'Space Mono',monospace;font-size:10px;
+                    color:#5cfc9a;letter-spacing:.06em">
+          <span style="width:6px;height:6px;border-radius:50%;background:#5cfc9a;
+                       box-shadow:0 0 6px #5cfc9a;flex-shrink:0;
+                       animation:pulse 2s ease-in-out infinite"></span>
+          Live Site
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-head">
@@ -192,13 +207,37 @@
           <span class="ptag">MySQL</span>
           <span class="ptag">IndexedDB</span>
         </div>
+        <div class="proj-visit-row">
+          <span class="proj-visit-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Visit Site
+          </span>
+        </div>
       </div>
-    </div>
+    </a>
 
+    <!-- PROJECT 02: Owens Bakery — expired disclaimer -->
     <div class="project-card reveal">
       <div class="proj-thumb">
         <div class="proj-num">02</div>
-        <img src="images/owens.png" alt="Owens Bakery Shop Website" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.85;"/>
+        <img src="images/owens.png" alt="Owens Bakery Shop Website"
+             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.4;filter:grayscale(60%)"/>
+        <!-- Expired overlay -->
+        <div style="position:absolute;inset:0;z-index:2;
+                    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+          <div style="background:rgba(7,7,13,0.82);backdrop-filter:blur(6px);
+                      border:1px solid rgba(252,92,138,0.35);border-radius:8px;
+                      padding:8px 16px;text-align:center">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;
+                        color:#fc5c8a;letter-spacing:.08em;margin-bottom:2px">
+              ⚠ Site Expired
+            </div>
+            <div style="font-family:'Space Mono',monospace;font-size:10px;
+                        color:rgba(255,255,255,0.45);letter-spacing:.04em">
+              Domain no longer active
+            </div>
+          </div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-head">
@@ -212,13 +251,18 @@
           <span class="ptag">Google Analytics</span>
           <span class="ptag">Search Console</span>
         </div>
+        <!-- Disclaimer note -->
+        <p style="margin-top:.75rem;font-family:'Space Mono',monospace;font-size:10px;
+                  color:rgba(252,92,138,0.7);letter-spacing:.04em;line-height:1.5">
+          * This site's hosting has expired and is no longer publicly accessible.
+        </p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ── CERTIFICATIONS ── -->
+<!-- CERTIFICATIONS -->
 <section id="certifications" class="section-wrap alt-bg">
   <div class="sec-head reveal"><span class="sec-icon">🏅</span><span class="sec-title">Certifications</span><div class="sec-line"></div></div>
   <div class="certs-grid">
@@ -249,7 +293,7 @@
   </div>
 </section>
 
-<!-- ── CONTACT / MESSAGE ── -->
+<!-- CONTACT / MESSAGE -->
 <section id="contact" class="contact-section">
   <div class="sec-head reveal"><span class="sec-icon">✉</span><span class="sec-title">Get in Touch</span><div class="sec-line"></div></div>
   <div class="contact-grid">
@@ -284,7 +328,7 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-left">
     <p>Looking for a front-end intern? <a href="mailto:andrei.laurel.3@gmail.com">Let's talk.</a></p>
