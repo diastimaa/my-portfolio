@@ -1,359 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Andrei Jovic Laurel — Frontend Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Andrei Jovic Laurel — Junior Software Developer</title>
+<meta name="description" content="Andrei Jovic Laurel is a junior software developer from Pampanga, Philippines, building web and mobile applications with Laravel, Flutter, Angular and Node.js." />
+<meta name="author" content="Andrei Jovic Laurel" />
+<meta name="theme-color" content="#0b0b0b" />
+<link rel="canonical" href="https://laurelportfolio.netlify.app/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Andrei Jovic Laurel — Junior Software Developer" />
+<meta property="og:description" content="Web and mobile application developer. Laravel, Flutter, Angular, Node.js." />
+<meta property="og:url" content="https://laurelportfolio.netlify.app/" />
+<meta property="og:image" content="https://laurelportfolio.netlify.app/images/profile/andrei-laurel-phone.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0b'/%3E%3Ctext x='30' y='43' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%23f5f5f2'%3EAL%3C/text%3E%3Crect x='46' y='14' width='6' height='6' fill='%23e5242b'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="bg-glow bg-glow-1"></div>
-<div class="bg-glow bg-glow-2"></div>
-<div class="bg-glow bg-glow-3"></div>
-
-<!-- NAV -->
-<nav>
-  <ul class="nav-links">
-    <li><a href="#about">about</a></li>
-    <li><a href="#skills">skills</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#certifications">certs</a></li>
-    <li><a href="#contact">contact</a></li>
-  </ul>
-  <div class="hamburger" id="ham" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-<div class="mobile-menu" id="mob-menu">
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#projects" onclick="closeMenu()">Projects</a>
-  <a href="#certifications" onclick="closeMenu()">Certifications</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-</div>
-
-<!-- HERO -->
-<section id="about" style="border:none;padding:0;position:relative;z-index:1">
-<div class="hero">
-  <div class="hero-left">
-    <!-- Avatar -->
-    <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--accent);background:var(--bg3);display:flex;align-items:center;justify-content:center;margin-bottom:1.8rem;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(124,92,252,.4);cursor:pointer" class="fade-up" onclick="document.getElementById('profileLightbox').classList.add('show')">
-      <img src="images/profile.png" alt="Andrei Jovic Laurel" style="width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:1;transition:transform .3s"/>
-    </div>
-
-    <!-- Profile Lightbox -->
-    <div id="profileLightbox" class="profile-lightbox" onclick="this.classList.remove('show')">
-      <div class="profile-lightbox-inner" onclick="event.stopPropagation()">
-        <img src="images/profile.png" alt="Andrei Jovic Laurel"/>
-        <button class="lightbox-close" onclick="document.getElementById('profileLightbox').classList.remove('show')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <p class="hero-eyebrow fade-up d1">
-      <span class="slash">//</span>
-      <span id="typewriter"></span><span class="cursor"></span>
-    </p>
-    <h1 class="hero-name fade-up d2">Andrei <span class="hl">Jovic</span><br>Laurel</h1>
-    <p class="hero-subtitle fade-up d3">
-      <span class="status-dot"></span>
-      Open to internships · Frontend Developer
-    </p>
-    <p class="hero-bio fade-up d4">
-      Fourth-year BSIT student specializing in Web Development with experience in front-end development and website creation. Focused on building responsive and functional websites through academic and personal projects.
-    </p>
-    <div class="hero-actions fade-up d5">
-      <a href="cv/Andrei Laurel_Resume.pdf" download class="btn btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download CV
-      </a>
-      <a href="mailto:andrei.laurel.3@gmail.com" class="btn btn-ghost">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Contact me
-      </a>
-      <a href="https://github.com/diastimaa" target="_blank" rel="noopener" class="btn btn-ghost">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-        GitHub
-      </a>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats-bar fade-up d6" style="margin-top:2.5rem">
-      <div class="stat"><span class="stat-num">2+</span><span class="stat-lbl">Projects</span></div>
-      <div class="stat"><span class="stat-num">6+</span><span class="stat-lbl">Certs</span></div>
-      <div class="stat"><span class="stat-num">12+</span><span class="stat-lbl">Skills</span></div>
-      <div class="stat"><span class="stat-num">4th</span><span class="stat-lbl">Year BSIT</span></div>
-    </div>
-  </div>
-
-  <!-- HERO RIGHT: Terminal Card -->
-  <div class="hero-right fade-up d3">
-    <div class="hero-terminal-card">
-      <div class="hero-terminal-bar">
-        <span class="tdot tdot-r"></span>
-        <span class="tdot tdot-y"></span>
-        <span class="tdot tdot-g"></span>
-        <span class="hero-terminal-filename">andrei.js</span>
-      </div>
-      <div class="hero-terminal-body" id="heroTermBody"></div>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- GRADIENT DIVIDER -->
-<div class="gradient-divider">
-  <div class="gradient-divider-line"></div>
-  <div class="gradient-divider-label">
-    <span class="gdot"></span>
-    <span>Available for Internship</span>
-    <span class="gdot-mid"></span>
-    <span>2026</span>
-    <span class="gdot-mid"></span>
-    <span>Pampanga, PH</span>
-    <span class="gdot-mid"></span>
-    <span>Frontend Developer</span>
-    <span class="gdot"></span>
-  </div>
-  <div class="gradient-divider-line"></div>
-</div>
-
-<!-- SKILLS + EDU -->
-<section id="skills" class="section-wrap alt-bg">
-  <div class="sec-head reveal"><span class="sec-icon">⚡</span><span class="sec-title">Technical Skills</span><div class="sec-line"></div></div>
-  <div class="skills-layout">
-    <div>
-      <div class="skill-grid">
-        <div class="skill-item reveal"><span class="sdot dp"></span>HTML5 &amp; CSS3</div>
-        <div class="skill-item reveal"><span class="sdot dy"></span>JavaScript</div>
-        <div class="skill-item reveal"><span class="sdot db"></span>AngularJS</div>
-        <div class="skill-item reveal"><span class="sdot db"></span>Tailwind CSS</div>
-        <div class="skill-item reveal"><span class="sdot dp"></span>Bootstrap 5</div>
-        <div class="skill-item reveal"><span class="sdot dg"></span>Node.js</div>
-        <div class="skill-item reveal"><span class="sdot dk"></span>Express.js</div>
-        <div class="skill-item reveal"><span class="sdot dy"></span>MySQL</div>
-        <div class="skill-item reveal"><span class="sdot dk"></span>Figma</div>
-        <div class="skill-item reveal"><span class="sdot dm"></span>Git</div>
-        <div class="skill-item reveal"><span class="sdot db"></span>WordPress</div>
-        <div class="skill-item reveal"><span class="sdot db"></span>Flutter</div>
-      </div>
-    </div>
-    <div>
-      <div class="sec-head reveal" style="margin-bottom:1rem"><span class="sec-icon">🎓</span><span class="sec-title">Education</span><div class="sec-line"></div></div>
-      <div class="edu-block reveal">
-        <div class="edu-header">
-          <div class="edu-school">Holy Angel University (HAU)</div>
-          <span class="edu-badge">2022 – Present</span>
-        </div>
-        <div class="edu-degree">BS Information Technology</div>
-        <div class="edu-major">Major in Web Development · Angeles City, Pampanga</div>
-        <div class="sub-lbl">Deployment &amp; Tools</div>
-        <div class="tool-chips">
-          <span class="chip chip-gray">Vercel</span>
-          <span class="chip chip-gray">Railway</span>
-          <span class="chip chip-gray">Google Analytics</span>
-          <span class="chip chip-gray">SEO (Yoast)</span>
-          <span class="chip chip-gray">IndexedDB</span>
-          <span class="chip chip-gray">Google Search Console</span>
-        </div>
-        <div class="sub-lbl">Languages</div>
-        <div class="lang-chips">
-          <span class="chip chip-gray">Filipino</span>
-          <span class="chip chip-gray">English</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section-wrap">
-  <div class="sec-head reveal"><span class="sec-icon">🗂</span><span class="sec-title">Projects</span><div class="sec-line"></div></div>
-  <div class="projects-grid">
-
-    <!-- PROJECT 01: MedFind — fully clickable, opens live site -->
-    <a href="https://www.motherandchildpharmacy.com/" target="_blank" rel="noopener"
-       class="project-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
-      <div class="proj-thumb">
-        <div class="proj-num">01</div>
-        <img src="images/medfind.png" alt="MedFind Pharmacy System"
-             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.85;"/>
-        <!-- Live badge -->
-        <div style="position:absolute;top:12px;right:14px;z-index:2;
-                    display:flex;align-items:center;gap:6px;
-                    background:rgba(7,7,13,0.75);backdrop-filter:blur(6px);
-                    border:1px solid rgba(92,252,154,0.35);border-radius:6px;
-                    padding:4px 10px;font-family:'Space Mono',monospace;font-size:10px;
-                    color:#5cfc9a;letter-spacing:.06em">
-          <span style="width:6px;height:6px;border-radius:50%;background:#5cfc9a;
-                       box-shadow:0 0 6px #5cfc9a;flex-shrink:0;
-                       animation:pulse 2s ease-in-out infinite"></span>
-          Live Site
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-head">
-          <div class="proj-name">MedFind — Pharmacy System</div>
-          <div class="proj-date">Nov 2025 – Mar 2026</div>
-        </div>
-        <p class="proj-desc">Mother &amp; Child Pharmacy System with medicine finder, inventory management, POS, and pre-order. Implemented IndexedDB offline sync for uninterrupted usage.</p>
-        <div class="proj-tags">
-          <span class="ptag">Angular 18</span>
-          <span class="ptag">Node.js</span>
-          <span class="ptag">Express.js</span>
-          <span class="ptag">MySQL</span>
-          <span class="ptag">IndexedDB</span>
-        </div>
-        <div class="proj-visit-row">
-          <span class="proj-visit-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Visit Site
-          </span>
-        </div>
-      </div>
+<!-- ───────── NAV ───────── -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#home" class="brand" aria-label="Andrei Jovic Laurel, home">
+      <span class="brand__mark">AL</span>
+      <span class="brand__name">Andrei Laurel</span>
     </a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="cv/Andrei_Laurel_Resume.pdf" download class="nav__cv">Resume ↓</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <!-- PROJECT 02: Owens Bakery — expired disclaimer -->
-    <div class="project-card reveal">
-      <div class="proj-thumb">
-        <div class="proj-num">02</div>
-        <img src="images/owens.png" alt="Owens Bakery Shop Website"
-             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.4;filter:grayscale(60%)"/>
-        <!-- Expired overlay -->
-        <div style="position:absolute;inset:0;z-index:2;
-                    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
-          <div style="background:rgba(7,7,13,0.82);backdrop-filter:blur(6px);
-                      border:1px solid rgba(252,92,138,0.35);border-radius:8px;
-                      padding:8px 16px;text-align:center">
-            <div style="font-family:'Space Mono',monospace;font-size:11px;
-                        color:#fc5c8a;letter-spacing:.08em;margin-bottom:2px">
-              ⚠ Site Expired
+<main id="main">
+
+<!-- ───────── HERO ───────── -->
+<section class="hero" id="home">
+  <div class="hero__grid wrap">
+    <div class="hero__copy">
+      <p class="eyebrow reveal"><span class="sq" aria-hidden="true"></span>BS Information Technology · Web Development</p>
+      <h1 class="hero__name reveal">Andrei Jovic Laurel</h1>
+      <p class="hero__role reveal">Junior Software Developer <span>for web &amp; mobile applications</span></p>
+      <p class="hero__lead reveal">
+        I build web and mobile apps that people rely on at work, like sales tools, customer mapping and pharmacy systems, and I make sure they keep working when the internet drops.
+      </p>
+      <div class="hero__actions reveal">
+        <a href="#projects" class="btn btn--solid">View my projects <span aria-hidden="true">→</span></a>
+        <a href="cv/Andrei_Laurel_Resume.pdf" download class="btn btn--line">Download resume <span aria-hidden="true">↓</span></a>
+        <a href="#contact" class="btn btn--text">Contact me</a>
+      </div>
+      <dl class="hero__facts reveal">
+        <div><dt>Latest role</dt><dd>Software Development Intern, Mekeni</dd></div>
+        <div><dt>Projects</dt><dd>4 featured</dd></div>
+        <div><dt>Based in</dt><dd>Pampanga, PH</dd></div>
+      </dl>
+    </div>
+
+    <!-- 3D scene: a web browser and a phone (web + mobile) -->
+    <div class="scene" id="scene" aria-label="Andrei's profile shown on a phone in front of a web dashboard">
+      <div class="scene__rig" id="sceneRig">
+        <div class="dev-browser" aria-hidden="true">
+          <div class="dev-browser__bar"><i></i><i></i><i></i><span>customer-mapping · built at Mekeni</span></div>
+          <img src="images/projects/customer-mapping/dashboard.jpg" alt="" width="1600" height="816" />
+        </div>
+
+        <div class="dev-code" aria-hidden="true">
+          <span class="c-k">const</span> <span class="c-v">me</span> = {<br />
+          &nbsp;&nbsp;web: <span class="c-s">'Laravel'</span>,<br />
+          &nbsp;&nbsp;mobile: <span class="c-s">'Flutter'</span>,<br />
+          &nbsp;&nbsp;offline: <span class="c-k">true</span><br />
+          };
+        </div>
+
+        <div class="dev-phone">
+          <div class="dev-phone__screen">
+            <div class="app-status" aria-hidden="true"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="app-photo">
+              <img src="images/profile/andrei-laurel-phone.jpg" width="720" height="820" alt="Andrei Jovic Laurel" fetchpriority="high" />
+              <span class="app-badge"><i></i>Available for work</span>
             </div>
-            <div style="font-family:'Space Mono',monospace;font-size:10px;
-                        color:rgba(255,255,255,0.45);letter-spacing:.04em">
-              Domain no longer active
+            <div class="app-body">
+              <p class="app-name">Andrei Jovic Laurel</p>
+              <p class="app-role">Junior Software Developer</p>
+              <ul class="app-chips"><li>Laravel</li><li>Flutter</li><li>Angular</li></ul>
+              <ul class="app-rows">
+                <li><b>Mekeni</b><span>Intern · 2026</span></li>
+                <li><b>HAU</b><span>BSIT · 2022–26</span></li>
+              </ul>
+              <span class="app-btn">Contact me</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="proj-body">
-        <div class="proj-head">
-          <div class="proj-name">Owens Bakery Shop Website</div>
-          <div class="proj-date">Jan – Apr 2025</div>
-        </div>
-        <p class="proj-desc">Developed and maintained a business website with SEO improvements, performance monitoring via Google Analytics, and responsive design optimization.</p>
-        <div class="proj-tags">
-          <span class="ptag">WordPress</span>
-          <span class="ptag">SEO</span>
-          <span class="ptag">Google Analytics</span>
-          <span class="ptag">Search Console</span>
-        </div>
-        <!-- Disclaimer note -->
-        <p style="margin-top:.75rem;font-family:'Space Mono',monospace;font-size:10px;
-                  color:rgba(252,92,138,0.7);letter-spacing:.04em;line-height:1.5">
-          * This site's hosting has expired and is no longer publicly accessible.
+      <div class="scene__floor" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── ABOUT ───────── -->
+<section class="section section--light" id="about">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="head__label"><span class="sq" aria-hidden="true"></span>01 · About</p>
+      <h2 class="head__title">About me</h2>
+    </header>
+    <div class="about">
+      <p class="about__lead" data-words data-scroll>
+        I'm a junior software developer who likes the practical side of software: features that make a real workflow easier, interfaces people can figure out quickly, and systems that keep working when the connection doesn't.
+      </p>
+      <div class="about__cols">
+        <p class="reveal">
+          I studied BS Information Technology, majoring in Web Development, at Holy Angel University. Through school and freelance work I built a WordPress business site for Owens Bakery and served as front-end developer and primary debugger for MedFind, a pharmacy system with offline sync.
+        </p>
+        <p class="reveal">
+          At Mekeni I joined the ICT software development team as an intern, working on internal business applications in Laravel and AngularJS and on a Flutter mobile app. Day to day that meant building features, integrating existing APIs, processing data, and testing and debugging alongside the team.
         </p>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications" class="section-wrap alt-bg">
-  <div class="sec-head reveal"><span class="sec-icon">🏅</span><span class="sec-title">Certifications</span><div class="sec-line"></div></div>
-  <div class="certs-grid">
-    <div class="cert-card reveal">
-      <div class="cert-icon-wrap" style="border-color:var(--yellow);color:var(--yellow);background:rgba(252,205,92,.08)">◎</div>
-      <div><div class="cert-name">Google Analytics</div><div class="cert-from">Skillshop</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon-wrap" style="border-color:var(--green);color:var(--green);background:rgba(92,252,154,.08)">◎</div>
-      <div><div class="cert-name">Responsive Web Design</div><div class="cert-from">freeCodeCamp</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon-wrap" style="border-color:var(--accent2);color:var(--accent2);background:rgba(92,204,252,.08)">◎</div>
-      <div><div class="cert-name">JS Algorithms &amp; Data Structures</div><div class="cert-from">freeCodeCamp</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon-wrap" style="border-color:var(--accent);color:var(--accent);background:rgba(124,92,252,.08)">◎</div>
-      <div><div class="cert-name">Get Started with Figma</div><div class="cert-from">Coursera</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon-wrap" style="border-color:var(--yellow);color:var(--yellow);background:rgba(252,205,92,.08)">◎</div>
-      <div><div class="cert-name">SEO</div><div class="cert-from">HubSpot Academy</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon-wrap" style="border-color:var(--yellow);color:var(--yellow);background:rgba(252,205,92,.08)">◎</div>
-      <div><div class="cert-name">SEO II</div><div class="cert-from">HubSpot Academy</div></div>
+      <dl class="about__points reveal">
+        <div data-tilt="8"><dt>I build</dt><dd>User interfaces, application features and API integrations</dd></div>
+        <div data-tilt="8"><dt>I work</dt><dd>As part of a development team on existing business systems</dd></div>
+        <div data-tilt="8"><dt>I care about</dt><dd>Reliable, usable software: offline support, validation, testing</dd></div>
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- CONTACT / MESSAGE -->
-<section id="contact" class="contact-section">
-  <div class="sec-head reveal"><span class="sec-icon">✉</span><span class="sec-title">Get in Touch</span><div class="sec-line"></div></div>
-  <div class="contact-grid">
-    <div class="contact-info reveal">
-      <h3>Let's work together</h3>
-      <p>Looking for a frontend intern or want to collaborate on a project? I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.</p>
-      <div class="contact-links">
-        <a href="mailto:andrei.laurel.3@gmail.com" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          andrei.laurel.3@gmail.com
+<!-- ───────── EXPERIENCE ───────── -->
+<section class="section" id="experience">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="head__label"><span class="sq" aria-hidden="true"></span>02 · Experience</p>
+      <h2 class="head__title">Experience</h2>
+    </header>
+
+    <article class="xp reveal" data-tilt="3">
+      <div class="xp__side">
+        <span class="xp__date">Aug 2026 – Nov 2026</span>
+        <span class="xp__org">Mekeni</span>
+        <span class="xp__type">ICT Department · Internship</span>
+      </div>
+      <div class="xp__main">
+        <h3 class="xp__role">Software Development Intern</h3>
+        <p class="xp__sub">Web &amp; mobile application development</p>
+        <p class="xp__intro">
+          Worked with the ICT software development team on Mekeni's internal business applications. The systems are team efforts; below is what I worked on.
+        </p>
+        <ol class="xp__list" data-scroll>
+          <li><span>Built and improved features in internal business web applications using <strong>Laravel, PHP, JavaScript, AngularJS and Blade</strong>.</span></li>
+          <li><span>Implemented responsive user interfaces, form validation, search and filtering, and business workflow improvements.</span></li>
+          <li><span>Initiated the <strong>Mekeni Sales</strong> mobile app in <strong>Flutter and Dart</strong> and built its initial structure, navigation and main dashboard.</span></li>
+          <li><span>Integrated the mobile app with existing APIs and built sales order features with offline saving and automatic sync, plus Employee Portal features.</span></li>
+          <li><span>Worked on data processing, including improvements to the STT data import used for sales monitoring.</span></li>
+          <li><span>Took part in functional testing, debugging and verification to improve usability and reliability.</span></li>
+        </ol>
+        <ul class="tags" aria-label="Technologies">
+          <li>Laravel</li><li>PHP</li><li>Blade</li><li>AngularJS</li><li>JavaScript</li><li>Flutter</li><li>Dart</li><li>REST APIs</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ───────── SKILLS ───────── -->
+<section class="section section--alt" id="skills">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="head__label"><span class="sq" aria-hidden="true"></span>03 · Skills</p>
+      <h2 class="head__title">Skills &amp; tools</h2>
+      <p class="head__dek">What I've used in my internship, projects and coursework.</p>
+    </header>
+
+    <div class="skills">
+      <div class="skill reveal" data-tilt="10"><h3>Languages</h3><ul><li>PHP</li><li>JavaScript</li><li>Dart</li></ul></div>
+      <div class="skill reveal" data-tilt="10"><h3>Web</h3><ul><li>Laravel</li><li>Blade</li><li>AngularJS</li><li>Angular 18</li><li>HTML5</li><li>CSS3</li><li>Tailwind CSS</li><li>Bootstrap 5</li></ul></div>
+      <div class="skill reveal" data-tilt="10"><h3>Mobile</h3><ul><li>Flutter</li><li>Offline sync</li></ul></div>
+      <div class="skill reveal" data-tilt="10"><h3>Backend &amp; APIs</h3><ul><li>Node.js</li><li>Express.js</li><li>REST APIs</li></ul></div>
+      <div class="skill reveal" data-tilt="10"><h3>Data &amp; tools</h3><ul><li>MySQL</li><li>IndexedDB</li><li>Git</li><li>Figma</li></ul></div>
+      <div class="skill reveal" data-tilt="10"><h3>Practice</h3><ul><li>Responsive design</li><li>Debugging</li><li>Software testing</li><li>WordPress</li><li>SEO</li><li>Google Analytics</li><li>Search Console</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PROJECTS ───────── -->
+<section class="section section--light section--projects" id="projects">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="head__label"><span class="sq" aria-hidden="true"></span>04 · Projects</p>
+      <h2 class="head__title">Selected projects</h2>
+      <p class="head__dek">Two team projects from my Mekeni internship and two earlier builds.</p>
+    </header>
+
+    <!-- PROJECT 1 — Mekeni Sales -->
+    <article class="story" id="p-mekeni-sales">
+      <div class="story__top">
+        <div>
+          <p class="story__label reveal"><span class="pill">Team project · Mekeni ICT</span><span>Aug – Nov 2026</span></p>
+          <h3 class="story__title reveal">Mekeni Sales</h3>
+          <p class="story__kicker reveal">Mobile application · Flutter</p>
+          <p class="story__desc reveal">
+            One mobile app for Mekeni staff: a dashboard of company applications, sales order creation and monitoring, and an Employee Portal for personal records. Orders can be prepared on the device and synced to Mekeni's systems.
+          </p>
+        </div>
+        <div>
+          <dl class="facts reveal">
+            <div><dt>My role</dt><dd>Initiated the app and built its first implementation (structure, navigation, main dashboard) as part of the ICT team, then sales order and Employee Portal features.</dd></div>
+          </dl>
+          <ul class="tags reveal"><li>Flutter</li><li>Dart</li><li>REST APIs</li></ul>
+        </div>
+      </div>
+
+      <div class="phones" data-scroll>
+        <figure class="phone-col reveal">
+          <figcaption><b>Dashboard</b><span>Company apps and modules</span></figcaption>
+          <div class="phone" data-gallery="ms-dash">
+            <img src="images/projects/mekeni-sales/app-list.jpg" alt="Mekeni mobile app: application list dashboard" width="600" height="1196" loading="lazy" data-gallery-target />
+          </div>
+          <div class="seg" role="tablist" aria-label="Dashboard screens" data-gallery-for="ms-dash">
+            <button role="tab" aria-selected="true" data-src="images/projects/mekeni-sales/app-list.jpg" data-alt="Mekeni mobile app: application list dashboard">App list</button>
+            <button role="tab" aria-selected="false" data-src="images/projects/mekeni-sales/more-apps.jpg" data-alt="All applications, with coming-soon modules">Modules</button>
+            <button role="tab" aria-selected="false" data-src="images/projects/mekeni-sales/sis-modules.jpg" data-alt="Sales Information System modules">SIS</button>
+          </div>
+        </figure>
+
+        <figure class="phone-col reveal">
+          <figcaption><b>Sales</b><span>Orders, online or offline</span></figcaption>
+          <div class="phone" data-gallery="ms-sales">
+            <img src="images/projects/mekeni-sales/sales-home.jpg" alt="Sales home with new sales order and drafts" width="600" height="1196" loading="lazy" data-gallery-target />
+          </div>
+          <div class="seg" role="tablist" aria-label="Sales screens" data-gallery-for="ms-sales">
+            <button role="tab" aria-selected="true" data-src="images/projects/mekeni-sales/sales-home.jpg" data-alt="Sales home with new sales order and drafts">Home</button>
+            <button role="tab" aria-selected="false" data-src="images/projects/mekeni-sales/offline-order.jpg" data-alt="New sales order, adding products while offline">Offline</button>
+            <button role="tab" aria-selected="false" data-src="images/projects/mekeni-sales/waiting-to-sync.jpg" data-alt="Order items waiting to sync">Sync</button>
+          </div>
+        </figure>
+
+        <figure class="phone-col reveal">
+          <figcaption><b>Employee Portal</b><span>Records, schedule and pay</span></figcaption>
+          <div class="phone" data-gallery="ms-emp">
+            <img src="images/projects/mekeni-sales/employee-portal.jpg" alt="Employee Portal menu with profile, time and leave" width="600" height="1196" loading="lazy" data-gallery-target />
+          </div>
+          <div class="seg" role="tablist" aria-label="Employee Portal screens" data-gallery-for="ms-emp">
+            <button role="tab" aria-selected="true" data-src="images/projects/mekeni-sales/employee-portal.jpg" data-alt="Employee Portal menu with profile, time and leave">Portal</button>
+            <button role="tab" aria-selected="false" data-src="images/projects/mekeni-sales/work-schedule.jpg" data-alt="Employee Portal work schedule">Schedule</button>
+            <button role="tab" aria-selected="false" data-src="images/projects/mekeni-sales/payslip-deductions.jpg" data-alt="Payslip history, deductions and helpdesk">Payslip</button>
+          </div>
+        </figure>
+      </div>
+    </article>
+
+    <!-- PROJECT 2 — Customer Mapping -->
+    <article class="story" id="p-customer-mapping">
+      <div class="story__top">
+        <div>
+          <p class="story__label reveal"><span class="pill">Team project · Mekeni ICT</span><span>Aug – Nov 2026</span></p>
+          <h3 class="story__title reveal">Customer Mapping</h3>
+          <p class="story__kicker reveal">Customer &amp; sales management · Web</p>
+          <p class="story__desc reveal">
+            A web tool for managing customer outlets, seeing where they are on a map, planning visits and monitoring related sales.
+          </p>
+          <ul class="checks reveal">
+            <li>Parent-and-child customer management</li>
+            <li>Outlet details and map pins</li>
+            <li>Visit scheduling and itinerary planning</li>
+            <li>GPS-based visit recording and sales monitoring</li>
+          </ul>
+        </div>
+        <div>
+          <dl class="facts reveal">
+            <div><dt>My role</dt><dd>Initiated the project and contributed to building it with the team, developing the customer, map, itinerary and sales monitoring features.</dd></div>
+          </dl>
+          <ul class="tags reveal"><li>Laravel</li><li>JavaScript</li><li>AngularJS</li></ul>
+        </div>
+      </div>
+
+      <div class="web-show">
+        <div class="web-stage" data-scroll data-tilt="6">
+          <div class="web-stage__rig">
+            <div class="browser" data-gallery="mapping">
+              <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>customer-mapping</span></div>
+              <div class="browser__screen">
+                <img src="images/projects/customer-mapping/dashboard.jpg" alt="Customer Mapping dashboard with customers and itinerary" loading="lazy" width="1600" height="816" data-gallery-target />
+              </div>
+            </div>
+            <span class="float-chip float-chip--a" aria-hidden="true"><i></i>Outlet map pins</span>
+            <span class="float-chip float-chip--b" aria-hidden="true"><i></i>Itinerary planning</span>
+            <span class="float-chip float-chip--c" aria-hidden="true"><i></i>Sales monitoring</span>
+            <span class="float-chip float-chip--d" aria-hidden="true"><i></i>GPS visit recording</span>
+          </div>
+        </div>
+        <div class="seg seg--wide" role="tablist" aria-label="Customer Mapping screens" data-gallery-for="mapping">
+          <button role="tab" aria-selected="true"  data-src="images/projects/customer-mapping/dashboard.jpg" data-alt="Customer Mapping dashboard with customers and itinerary">Dashboard</button>
+          <button role="tab" aria-selected="false" data-src="images/projects/customer-mapping/customer-list.jpg" data-alt="Customer list with parent and child accounts and filters">Customers</button>
+          <button role="tab" aria-selected="false" data-src="images/projects/customer-mapping/itinerary.jpg" data-alt="Monthly itinerary planner with upcoming visits">Itinerary</button>
+          <button role="tab" aria-selected="false" data-src="images/projects/customer-mapping/sales-map.jpg" data-alt="Sales monitoring with map and top customers">Sales map</button>
+          <button role="tab" aria-selected="false" data-src="images/projects/customer-mapping/store-follow-up.jpg" data-alt="Stores to follow up based on buying activity">Follow-up</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 3 + 4 -->
+    <div class="pair">
+      <article class="card reveal" id="p-medfind" data-tilt="5">
+        <a class="browser browser--sm" href="https://www.motherandchildpharmacy.com/" target="_blank" rel="noopener" aria-label="Open MedFind live site">
+          <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>motherandchildpharmacy.com</span></div>
+          <div class="browser__screen"><img src="images/projects/medfind/medfind-home.png" alt="MedFind pharmacy system interface" loading="lazy" /></div>
         </a>
-        <a href="https://github.com/diastimaa" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          GitHub Profile
-        </a>
+        <div class="card__body">
+          <p class="story__label"><span class="pill pill--live">Live</span><span>Nov 2025 – Mar 2026</span></p>
+          <h3 class="card__title">MedFind</h3>
+          <p class="story__kicker">Mother &amp; Child Pharmacy System</p>
+          <p class="card__desc">A pharmacy system with a medicine finder, inventory management, point of sale and pre-orders.</p>
+          <dl class="facts">
+            <div><dt>My role</dt><dd>Front-end developer and primary debugger: designed, built, tested and troubleshot the system interface.</dd></div>
+          </dl>
+          <ul class="checks">
+            <li>Medicine finder, inventory, POS and pre-order modules</li>
+            <li>IndexedDB offline sync that catches up automatically when back online</li>
+          </ul>
+          <ul class="tags"><li>Angular 18</li><li>Node.js</li><li>Express.js</li><li>MySQL</li><li>IndexedDB</li></ul>
+          <a class="link" href="https://www.motherandchildpharmacy.com/" target="_blank" rel="noopener">Visit live site ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal" id="p-owens" data-tilt="5">
+        <div class="browser browser--sm browser--muted">
+          <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>owens bakery shop</span></div>
+          <div class="browser__screen"><img src="images/projects/owens-bakery/owens-bakery-home.png" alt="Owens Bakery Shop website homepage" loading="lazy" /></div>
+        </div>
+        <div class="card__body">
+          <p class="story__label"><span class="pill pill--off">Offline</span><span>Jan – Apr 2025</span></p>
+          <h3 class="card__title">Owens Bakery Shop</h3>
+          <p class="story__kicker">Business website · WordPress</p>
+          <p class="card__desc">A business website I developed and maintained, from page creation and content updates to responsive design and SEO.</p>
+          <dl class="facts">
+            <div><dt>My role</dt><dd>Built and maintained the site, implemented SEO improvements and monitored performance.</dd></div>
+          </dl>
+          <ul class="checks">
+            <li>Responsive pages and ongoing content updates</li>
+            <li>SEO work tracked in Google Analytics and Search Console, contributing to more organic traffic</li>
+          </ul>
+          <ul class="tags"><li>WordPress</li><li>SEO</li><li>Google Analytics</li><li>Search Console</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── EDUCATION ───────── -->
+<section class="section" id="education">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="head__label"><span class="sq" aria-hidden="true"></span>05 · Education</p>
+      <h2 class="head__title">Education &amp; certifications</h2>
+    </header>
+
+    <div class="edu">
+      <article class="edu__item reveal" data-tilt="8">
+        <span class="edu__date">2022 – 2026</span>
+        <h3>BS Information Technology</h3>
+        <p class="edu__major">Major in Web Development</p>
+        <p>Holy Angel University (HAU) · Angeles City, Pampanga</p>
+        <p class="edu__lang"><b>Languages</b> Filipino · English</p>
+      </article>
+
+      <div class="certs reveal" data-tilt="5">
+        <h3>Certifications</h3>
+        <ul>
+          <li><span>Google Analytics Certification</span><em>Skillshop</em></li>
+          <li><span>Responsive Web Design</span><em>freeCodeCamp</em></li>
+          <li><span>Legacy JavaScript Algorithms and Data Structures</span><em>freeCodeCamp</em></li>
+          <li><span>Frontend Development Libraries V8</span><em>freeCodeCamp</em></li>
+          <li><span>Frontend Developer (React)</span><em>HackerRank</em></li>
+          <li><span>Get Started with Figma</span><em>Coursera</em></li>
+          <li><span>SEO</span><em>HubSpot Academy</em></li>
+          <li><span>SEO II</span><em>HubSpot Academy</em></li>
+        </ul>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="reveal">
-      <p class="msg-form-title">Send a Message</p>
-      <form class="msg-form" id="contactForm">
-        <input type="text" id="msgName" class="msg-input" placeholder="Your name" required/>
-        <input type="email" id="msgEmail" class="msg-input" placeholder="Your email" required/>
-        <textarea id="msgBody" class="msg-textarea" placeholder="Write your message here…" required></textarea>
-        <button type="submit" class="msg-send-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          Send Message
-        </button>
+<!-- ───────── CONTACT ───────── -->
+<section class="section section--ink" id="contact">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="head__label"><span class="sq" aria-hidden="true"></span>06 · Contact</p>
+      <h2 class="head__title">Let's talk</h2>
+    </header>
+    <div class="contact__grid">
+      <div>
+        <p class="contact__lead reveal">Hiring for a junior developer role, or have a project in mind? Send me a message or reach me directly.</p>
+        <dl class="contact__list reveal">
+          <div><dt>Email</dt><dd><a href="mailto:andrei.laurel.3@gmail.com">andrei.laurel.3@gmail.com</a></dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+639054424644">0905 442 4644</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/diastimaa" target="_blank" rel="noopener">github.com/diastimaa</a></dd></div>
+          <div><dt>Location</dt><dd>Porac, Pampanga, Philippines</dd></div>
+        </dl>
+      </div>
+
+      <form class="form reveal" id="contactForm" action="https://formspree.io/f/maqzooak" method="POST" novalidate data-tilt="4">
+        <p class="form__title">Send a message</p>
+        <div class="field">
+          <label for="msgName">Your name</label>
+          <input type="text" id="msgName" name="name" autocomplete="name" placeholder="Juan Dela Cruz" required />
+        </div>
+        <div class="field">
+          <label for="msgEmail">Your email</label>
+          <input type="email" id="msgEmail" name="email" autocomplete="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="msgBody">Message</label>
+          <textarea id="msgBody" name="message" rows="5" placeholder="Tell me about the role or project…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--dark form__submit">Send message <span aria-hidden="true">→</span></button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
-      <div class="msg-success" id="msgSuccess">✓ Message sent! I'll get back to you soon.</div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-left">
-    <p>Looking for a front-end intern? <a href="mailto:andrei.laurel.3@gmail.com">Let's talk.</a></p>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Andrei Jovic Laurel</p>
+    <ul>
+      <li><a href="mailto:andrei.laurel.3@gmail.com">Email</a></li>
+      <li><a href="https://github.com/diastimaa" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="cv/Andrei_Laurel_Resume.pdf" download>Resume</a></li>
+      <li><a href="#home">Back to top ↑</a></li>
+    </ul>
   </div>
-  <div class="footer-btns">
-    <a href="mailto:andrei.laurel.3@gmail.com" class="fbtn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email
-    </a>
-    <a href="https://github.com/diastimaa" target="_blank" rel="noopener" class="fbtn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub
-    </a>
-  </div>
-  <p class="footer-copy">© 2026 Andrei Jovic Laurel · Built with HTML, CSS &amp; passion</p>
 </footer>
 
-<!-- SCROLL DOWN -->
-<div class="scroll-btn" id="scrollBtn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-</div>
-
-<!-- BACK TO TOP -->
-<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
-</button>
-
-<script src="script.js"></script>
+<script src="assets/main.js" defer></script>
 </body>
 </html>
