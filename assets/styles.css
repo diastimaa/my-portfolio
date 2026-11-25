@@ -780,3 +780,20 @@ img.is-swapping { opacity: 0; }
   .card .tags li { font-size: 12.5px; padding: 3px 10px; }
   .card__desc { margin: 10px 0 14px; font-size: 15.5px; }
 }
+@media (max-width: 720px) {
+  /* Project cards: "My role" as a soft tinted box, tighter checklist */
+  .card__desc { margin: 8px 0 12px; font-size: 15px; line-height: 1.55; }
+  .card .facts { border-top: 0; margin: 0 0 12px; }
+  .card .facts div { display: block; padding: 10px 12px; border: 0; border-radius: 12px; background: rgba(11, 11, 11, 0.05); }
+  .card .facts dt { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 3px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
+  .card .facts dt::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+  .card .facts dd { font-size: 14.5px; line-height: 1.5; }
+  .card .checks { gap: 6px; margin: 0 0 14px; }
+  .card .checks li { font-size: 14px; line-height: 1.45; padding-left: 22px; }
+  .card .checks li::before { top: 0.45em; width: 9px; height: 5px; }
+  .card__body { padding: 14px 4px 4px; }
+  .card .story__label { margin-bottom: 8px; }
+  .card__title { font-size: 32px; }
+  .card .story__kicker { margin-top: 4px; font-size: 14px; }
+  .card .link { margin-top: 12px; }
+}
