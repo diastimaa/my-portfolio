@@ -955,3 +955,11 @@ img.is-swapping { opacity: 0; }
   .nav nav { pointer-events: none; }
   .nav.is-open nav { pointer-events: auto; }
 }
+
+/* About cards on phones: compact stacked rows instead of a swipe row */
+@media (max-width: 720px) {
+  .about__points { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 24px 0 0; padding: 0; overflow: visible; scroll-snap-type: none; }
+  .about__points div { display: grid; grid-template-columns: 104px 1fr; align-items: baseline; column-gap: 10px; padding: 12px 14px; border-radius: 12px; flex: none; }
+  .about__points dt { margin-bottom: 0; font-size: 13.5px; }
+  .about__points dd { font-size: 14.5px; line-height: 1.45; }
+}
