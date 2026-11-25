@@ -902,3 +902,56 @@ img.is-swapping { opacity: 0; }
   .contact__list div:first-child { grid-column: 1 / -1; }
   .contact__lead { font-size: 24px; }
 }
+
+/* ==========================================================
+   Mekeni Sales phones on mobile: 3D carousel (one in front, two behind)
+   Enabled by main.js with .is-carousel; without JS the swipe row remains.
+   ========================================================== */
+.carousel-dots { display: none; }
+
+@media (max-width: 720px) {
+  .phones.is-carousel, .phones[data-scroll].is-carousel {
+    display: block; position: relative; height: 548px; margin: 26px 0 0; padding: 0;
+    overflow: visible; scroll-snap-type: none; perspective: 1100px; perspective-origin: 50% 40%;
+    touch-action: pan-y; transform: none;
+  }
+  .phones.is-carousel .phone-col {
+    position: absolute; top: 0; left: 50%; width: 230px; margin-left: -115px;
+    transform-style: preserve-3d; cursor: pointer;
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease, filter 0.6s ease;
+  }
+  .phones.is-carousel .phone { max-width: 210px; margin: 0 auto; }
+  /* front */
+  .phones.is-carousel .phone-col[data-pos="0"] { z-index: 3; transform: translateX(0) translateZ(0) rotateY(0deg) scale(1); opacity: 1; cursor: default; }
+  /* behind, left and right */
+  .phones.is-carousel .phone-col[data-pos="-1"] { z-index: 1; transform: translateX(-46%) translateZ(-170px) rotateY(32deg) scale(0.8); opacity: 0.62; filter: saturate(0.75) brightness(0.92); }
+  .phones.is-carousel .phone-col[data-pos="1"]  { z-index: 1; transform: translateX(46%) translateZ(-170px) rotateY(-32deg) scale(0.8); opacity: 0.62; filter: saturate(0.75) brightness(0.92); }
+  /* only the front phone shows its title and screen buttons */
+  .phones.is-carousel .phone-col:not([data-pos="0"]) figcaption,
+  .phones.is-carousel .phone-col:not([data-pos="0"]) .seg { visibility: hidden; opacity: 0; }
+  .phones.is-carousel .phone-col figcaption, .phones.is-carousel .phone-col .seg { transition: opacity 0.4s ease, visibility 0.4s; }
+  .phones.is-carousel .phone-col .seg::before { display: none; }
+  /* soft floor shadow under the front phone */
+  .phones.is-carousel::after {
+    content: ""; position: absolute; left: 50%; top: 476px; width: 180px; height: 22px; margin-left: -90px; z-index: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.28), transparent 70%); filter: blur(4px); pointer-events: none;
+  }
+
+  /* dots under the carousel */
+  .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+  .carousel-dots button {
+    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; cursor: pointer;
+    background: rgba(11, 11, 11, 0.22); transition: width 0.4s var(--ease), background 0.3s;
+  }
+  .carousel-dots button[aria-current="true"] { width: 26px; background: #0b0b0b; }
+  .carousel-dots button:focus:not(:focus-visible) { outline: none; }
+}
+@media (max-width: 720px) and (prefers-reduced-motion: reduce) {
+  .phones.is-carousel .phone-col { transition: none; }
+}
+
+/* The closed mobile menu must not block taps on the page below the header */
+@media (max-width: 1020px) {
+  .nav nav { pointer-events: none; }
+  .nav.is-open nav { pointer-events: auto; }
+}

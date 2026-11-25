@@ -343,6 +343,76 @@
     sync();
   });
 
+  /* ── Mekeni phones on mobile: 3D carousel (front phone in the centre, two behind) ── */
+  const ring = document.querySelector('.phones[data-scroll]');
+  if (ring) {
+    const cols = [...ring.querySelectorAll('.phone-col')];
+    const n = cols.length;
+    const mq = window.matchMedia('(max-width: 720px)');
+    const names = cols.map((c) => (c.querySelector('figcaption b') || {}).textContent || 'Screen');
+    let active = 0;
+
+    const dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    dots.setAttribute('role', 'group');
+    dots.setAttribute('aria-label', 'Choose app section');
+    cols.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Show ' + names[i]);
+      d.addEventListener('click', () => go(i));
+      dots.appendChild(d);
+    });
+    ring.insertAdjacentElement('afterend', dots);
+
+    const layout = () => {
+      cols.forEach((c, i) => {
+        let pos = i - active;
+        if (pos > n / 2) pos -= n;
+        if (pos < -n / 2) pos += n;
+        c.dataset.pos = String(pos);
+      });
+      [...dots.children].forEach((d, i) => d.setAttribute('aria-current', String(i === active)));
+    };
+    const go = (i) => { active = (i + n) % n; layout(); };
+
+    const enable = () => {
+      if (mq.matches) { ring.classList.add('is-carousel'); layout(); }
+      else { ring.classList.remove('is-carousel'); cols.forEach((c) => delete c.dataset.pos); }
+    };
+    mq.addEventListener('change', enable);
+    enable();
+
+    // tap a phone behind to bring it to the front
+    cols.forEach((c, i) => c.addEventListener('click', (e) => {
+      if (!ring.classList.contains('is-carousel') || c.dataset.pos === '0') return;
+      if (e.target.closest('.seg')) return;
+      go(i);
+    }));
+
+    // swipe left or right to rotate
+    let sx = null, sy = 0;
+    ring.addEventListener('pointerdown', (e) => {
+      if (!ring.classList.contains('is-carousel') || e.target.closest('.seg')) return;
+      sx = e.clientX; sy = e.clientY;
+    });
+    const end = (e) => {
+      if (sx === null) return;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      sx = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) go(active + (dx < 0 ? 1 : -1));
+      else if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+        // a tap on the left or right side brings that phone to the front
+        const r = ring.getBoundingClientRect();
+        const mid = r.left + r.width / 2;
+        if (e.clientX < mid - 80) go(active - 1);
+        else if (e.clientX > mid + 80) go(active + 1);
+      }
+    };
+    ring.addEventListener('pointerup', end);
+    ring.addEventListener('pointercancel', () => { sx = null; });
+  }
+
   /* ── Footer year ── */
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
