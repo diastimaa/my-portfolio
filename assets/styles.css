@@ -26,7 +26,7 @@
 
   --wrap: 1200px;
   --gutter: clamp(18px, 4vw, 48px);
-  --section: clamp(88px, 10vw, 140px);
+  --section: clamp(64px, 8vw, 116px);
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --radius: 14px;
 }
@@ -520,3 +520,158 @@ img.is-swapping { opacity: 0; }
 /* Phones never block clicks: they are visual only, and the screen buttons sit above them */
 .phones[data-scroll] .phone { pointer-events: none; }
 .phones[data-scroll] .seg { position: relative; z-index: 5; transform: translateZ(1px); }
+
+/* ==========================================================
+   Responsive refinement: tablet & mobile
+   Goals: nothing overlaps, less scrolling, keep the 3D feel.
+   ========================================================== */
+
+/* ── Tablet (721–1020): two-column hero instead of a long stack ── */
+@media (min-width: 721px) and (max-width: 1020px) {
+  .hero { padding: calc(68px + 40px) 0 56px; }
+  .hero__grid { grid-template-columns: 1.08fr 0.92fr; gap: 24px; }
+  .hero__name { font-size: clamp(44px, 6.4vw, 60px); }
+  .hero__role { font-size: 19px; }
+  .hero__lead { font-size: 16px; }
+  .hero__actions .btn { height: 48px; padding: 0 18px; font-size: 15px; }
+  .hero__facts { grid-template-columns: repeat(3, auto); }
+  .hero__facts div { padding-right: 14px; }
+  .hero__facts div + div { padding-left: 14px; }
+  .scene { height: 470px; max-width: none; margin: 0; }
+  .dev-browser { width: 96%; top: 10%; left: -6%; }
+  .dev-code { display: none; }
+  .dev-phone { width: 210px; right: 0; top: 4%; }
+  .about__points { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .about__points div { padding: 16px; }
+  .phones { gap: 12px; }
+  .phone { max-width: 210px; }
+  .skills { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .skill { padding: 18px; }
+  .skill h3 { font-size: 23px; }
+}
+
+/* ── Mobile (≤720) ── */
+@media (max-width: 720px) {
+  :root { --gutter: 18px; }
+  .section { padding: 60px 0; }
+  .head { margin-bottom: 28px; }
+  .head__title { font-size: clamp(36px, 10vw, 46px); margin-top: 8px; }
+  .head__dek { font-size: 16px; }
+
+  /* Hero: compact text block */
+  .hero { padding: calc(68px + 24px) 0 36px; }
+  .hero__grid { gap: 8px; }
+  .eyebrow { font-size: 12.5px; }
+  .hero__name { font-size: clamp(40px, 11.5vw, 52px); margin-top: 12px; }
+  .hero__role { font-size: 18px; margin-top: 10px; line-height: 1.4; }
+  .hero__lead { font-size: 16px; margin-top: 10px; }
+  .hero__actions { gap: 10px; margin-top: 22px; }
+  .hero__actions .btn--solid, .hero__actions .btn--line { flex: 1 1 0; height: 48px; padding: 0 12px; font-size: 14.5px; gap: 6px; }
+  .hero__actions .btn--text { flex-basis: 100%; justify-content: center; height: 36px; }
+  .hero__facts { grid-template-columns: repeat(3, 1fr); margin-top: 20px; }
+  .hero__facts div, .hero__facts div + div { padding: 12px 8px 0 0; }
+  .hero__facts div + div { padding-left: 10px; border-left: 1px solid var(--line); }
+  .hero__facts div:nth-child(3) { grid-column: auto; padding-left: 10px; border-left: 1px solid var(--line); }
+  .hero__facts dt { font-size: 11.5px; }
+  .hero__facts dd { font-size: 13px; line-height: 1.35; }
+
+  /* Hero 3D phone: sized to fit its stage, gentle automatic sway (no mouse on touch) */
+  .scene { height: 380px; margin-top: 24px; }
+  .scene__rig { --ry: -14deg; --rx: 4deg; }
+  .dev-phone { width: 196px; aspect-ratio: 9 / 15; right: 50%; margin-right: -98px; top: 10px; border-radius: 34px; padding: 7px; }
+  .dev-phone__screen { border-radius: 28px; }
+  .app-status { padding: 6px 14px 3px; font-size: 10px; }
+  .app-photo { margin: 0 8px; border-radius: 18px; aspect-ratio: 1 / 0.92; }
+  .app-badge { font-size: 10px; padding: 4px 8px; left: 8px; bottom: 8px; }
+  .app-body { padding: 9px 12px 11px; }
+  .app-name { font-size: 18px; }
+  .app-role { font-size: 11px; }
+  .app-chips { margin-top: 7px; }
+  .app-chips li { font-size: 9.5px; padding: 2px 7px; }
+  .app-rows { display: none; }
+  .app-btn { padding: 7px; font-size: 11px; border-radius: 10px; }
+  .scene__floor { bottom: 2px; left: 25%; right: 25%; height: 24px; }
+
+  /* About: shorter text block, swipeable cards */
+  .about__lead { font-size: 24px; line-height: 1.25; }
+  .about__cols { margin-top: 18px; gap: 12px; font-size: 15.5px; }
+  .about__points { display: flex; gap: 12px; margin: 24px calc(var(--gutter) * -1) 0; padding: 0 var(--gutter) 4px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .about__points::-webkit-scrollbar { display: none; }
+  .about__points div { flex: 0 0 78%; scroll-snap-align: start; padding: 16px; }
+
+  /* Experience: tighter card */
+  .xp { padding: 20px; gap: 14px; }
+  .xp__org { font-size: 38px; }
+  .xp__role { font-size: 28px; }
+  .xp__intro { margin-top: 12px; font-size: 15.5px; }
+  .xp__list { margin: 16px 0 20px; }
+  .xp__list li { padding: 11px 0 11px 40px; font-size: 15px; }
+  .xp__list li::before { left: 10px; top: 14px; }
+
+  /* Skills: 2-column compact grid (6 cards in 3 short rows) */
+  .skills { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .skill { padding: 14px; }
+  .skill h3 { font-size: 20px; margin-bottom: 10px; }
+  .skill ul { gap: 5px; }
+  .skill li { font-size: 12.5px; padding: 3px 9px; }
+  .skill[data-tilt] h3, .skill[data-tilt] ul { transform: none; }
+
+  /* Projects */
+  .story { padding-bottom: 44px; margin-bottom: 44px; }
+  .story__top { gap: 18px; }
+  .story__title { font-size: 40px; }
+  .story__desc { font-size: 16px; margin-top: 10px; }
+  .checks { margin-top: 14px; gap: 6px; }
+  .checks li { font-size: 15px; }
+  .facts div { padding: 10px 0; }
+
+  /* Mekeni phones: swipe row with the next phone peeking in */
+  .phones, .phones[data-scroll] { display: flex; gap: 14px; margin: 28px calc(var(--gutter) * -1) 0; padding: 12px var(--gutter) 8px;
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; transform: none; }
+  .phones::-webkit-scrollbar { display: none; }
+  .phone-col { flex: 0 0 64%; scroll-snap-align: center; }
+  .phone-col figcaption { margin-bottom: 10px; }
+  .phone-col figcaption b { font-size: 16px; }
+  .phone-col figcaption span { font-size: 13px; }
+  .phone { max-width: 210px; }
+  .seg { margin-top: 12px; }
+  .seg button { font-size: 13px; padding: 6px 11px; }
+  .phones-hint { display: block; }
+
+  /* Customer Mapping stage */
+  .web-show { margin-top: 28px; }
+  .web-stage { padding: 18px 0; }
+  .seg--wide { display: flex; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; max-width: 100%; scrollbar-width: none; }
+  .seg--wide::-webkit-scrollbar { display: none; }
+  .seg--wide button { flex: 0 0 auto; }
+
+  /* MedFind / Owens: swipe row */
+  .pair { display: flex; gap: 14px; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 6px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .pair::-webkit-scrollbar { display: none; }
+  .pair .card { flex: 0 0 86%; scroll-snap-align: start; }
+  .card__title { font-size: 34px; }
+  .card__body { padding: 16px 6px 6px; }
+
+  /* Education & contact */
+  .edu { gap: 14px; }
+  .edu__item, .certs { padding: 20px; }
+  .edu__item h3, .certs h3 { font-size: 28px; }
+  .certs li { padding: 8px 0; font-size: 15px; }
+  .contact__lead { font-size: 26px; }
+  .contact__list { margin-top: 20px; }
+  .contact__list div { padding: 11px 0; }
+  .form { padding: 20px; gap: 14px; }
+  .form__title { font-size: 26px; }
+}
+
+/* Touch devices: the hero scene sways on its own since there is no mouse tilt */
+@keyframes rigSway { 0%, 100% { rotate: y -6deg; } 50% { rotate: y 6deg; } }
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  .is-ready .scene__rig { animation: rigSway 9s ease-in-out infinite; }
+}
+
+/* Swipe hints (mobile only) */
+.swipe-hint { display: none; margin-top: 8px; text-align: center; font-size: 13px; color: var(--fg-3); }
+@media (max-width: 720px) { .swipe-hint { display: block; } }
