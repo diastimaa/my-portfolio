@@ -675,3 +675,53 @@ img.is-swapping { opacity: 0; }
 /* Swipe hints (mobile only) */
 .swipe-hint { display: none; margin-top: 8px; text-align: center; font-size: 13px; color: var(--fg-3); }
 @media (max-width: 720px) { .swipe-hint { display: block; } }
+
+/* ==========================================================
+   Hero 3D layers: screen shine (all sizes), orbit + chips (mobile)
+   ========================================================== */
+.dev-phone__screen { position: relative; }
+.dev-phone__shine {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.38) 47%, rgba(255, 255, 255, 0.08) 54%, transparent 64%);
+  background-size: 280% 100%; mix-blend-mode: screen; animation: glare 7s ease-in-out infinite;
+}
+.orbit, .orbit-chip { display: none; }
+.scene__rig.is-dragging { transition: transform 0.08s linear !important; }
+.scene__rig.is-orienting { transition: transform 0.3s linear !important; }
+
+@media (max-width: 720px) {
+  /* Show only the top of the phone (status bar, photo, badge); the rest fades away */
+  .scene {
+    height: 300px; margin-top: 18px; overflow: hidden; touch-action: pan-y; cursor: grab;
+    -webkit-mask-image: linear-gradient(to bottom, #000 66%, transparent 97%);
+            mask-image: linear-gradient(to bottom, #000 66%, transparent 97%);
+  }
+  .dev-phone { width: 236px; margin-right: -118px; top: 34px; }
+  .app-photo { aspect-ratio: 1 / 1.04; }
+  .app-badge { font-size: 11px; padding: 5px 10px; }
+  .scene__floor { display: none; }
+
+  /* 3D ring orbiting the phone; its front half passes in front of the phone */
+  .orbit {
+    display: block; position: absolute; left: 50%; top: 52%; width: 340px; height: 340px; margin: -170px 0 0 -170px;
+    border: 1px solid rgba(255, 255, 255, 0.24); border-radius: 50%; pointer-events: none;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.06) inset;
+    transform: rotateX(74deg) rotateZ(0deg); animation: orbitSpin 12s linear infinite;
+  }
+  .orbit i { position: absolute; top: -5px; left: calc(50% - 5px); width: 10px; height: 10px; border-radius: 50%; background: #fff; box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.55); }
+  @keyframes orbitSpin { to { transform: rotateX(74deg) rotateZ(360deg); } }
+
+  /* Tech chips floating at different depths in front of the phone */
+  .orbit-chip {
+    display: inline-flex; position: absolute; z-index: 4; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94); color: #0b0b0b; font-size: 12px; font-weight: 700; white-space: nowrap;
+    box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.8); pointer-events: none; animation: floatA 6s ease-in-out infinite;
+  }
+  .orbit-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+  .orbit-chip--1 { left: 13%; top: 62px; transform: translateZ(110px); }
+  .orbit-chip--2 { right: 9%; top: 132px; transform: translateZ(140px); animation-delay: -2s; }
+  .orbit-chip--3 { left: 15%; top: 204px; transform: translateZ(150px); animation-delay: -4s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dev-phone__shine, .orbit, .orbit-chip { animation: none !important; }
+}

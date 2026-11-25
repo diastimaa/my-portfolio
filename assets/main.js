@@ -269,6 +269,52 @@
     area.addEventListener('pointerleave', () => { phonesEl.style.setProperty('--py', '0deg'); phonesEl.style.setProperty('--px', '0deg'); });
   }
 
+  /* ── Hero scene on touch screens: drag to tilt, and tilt with the phone's motion ── */
+  const scene = document.getElementById('scene');
+  if (scene && rig && !finePointer && !reduceMotion) {
+    const clamp = (v, a) => Math.max(-a, Math.min(a, v));
+    let dragging = false, sx = 0, sy = 0, raf = 0;
+    const setTilt = (ry, rx) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        rig.style.setProperty('--ry', ry.toFixed(1) + 'deg');
+        rig.style.setProperty('--rx', rx.toFixed(1) + 'deg');
+      });
+    };
+    scene.addEventListener('pointerdown', (e) => {
+      dragging = true; sx = e.clientX; sy = e.clientY;
+      rig.classList.add('is-dragging');
+    });
+    scene.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      setTilt(-14 + clamp((e.clientX - sx) * 0.3, 40), 4 - clamp((e.clientY - sy) * 0.15, 18));
+    });
+    const release = () => {
+      if (!dragging) return;
+      dragging = false;
+      rig.classList.remove('is-dragging');
+      rig.style.removeProperty('--ry'); rig.style.removeProperty('--rx');
+    };
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach((t) => scene.addEventListener(t, release));
+
+    // Device motion: Android starts right away; iPhone asks once, on the first touch of the scene
+    const onOrient = (e) => {
+      if (dragging || e.gamma == null) return;
+      const heroBox = document.getElementById('home').getBoundingClientRect();
+      if (heroBox.bottom < 0) return; // only while the hero is on screen
+      rig.classList.add('is-orienting');
+      setTilt(-14 + clamp(e.gamma, 25) * 0.9, 4 + clamp((e.beta || 45) - 45, 20) * 0.4);
+    };
+    const DOE = window.DeviceOrientationEvent;
+    if (DOE && typeof DOE.requestPermission === 'function') {
+      scene.addEventListener('pointerdown', () => {
+        DOE.requestPermission().then((s) => { if (s === 'granted') window.addEventListener('deviceorientation', onOrient); }).catch(() => {});
+      }, { once: true });
+    } else if (DOE) {
+      window.addEventListener('deviceorientation', onOrient);
+    }
+  }
+
   /* ── Footer year ── */
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
