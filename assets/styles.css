@@ -797,3 +797,49 @@ img.is-swapping { opacity: 0; }
   .card .story__kicker { margin-top: 4px; font-size: 14px; }
   .card .link { margin-top: 12px; }
 }
+
+/* ==========================================================
+   Project cards: "My role & features" expandable panel (mobile)
+   Desktop and tablet always show the details; the toggle is hidden.
+   ========================================================== */
+.card__more { display: none; }
+
+@media (max-width: 720px) {
+  .pair { align-items: flex-start; }
+  .card__more {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%;
+    margin: 0 0 12px; padding: 10px 10px 10px 16px; border-radius: 14px;
+    border: 1px solid var(--line-2); background: #ffffff; color: var(--fg);
+    font-size: 14.5px; font-weight: 700; cursor: pointer; -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 8px 20px -14px rgba(0, 0, 0, 0.35);
+    transition: background 0.35s var(--ease), color 0.35s, border-color 0.35s, transform 0.2s, box-shadow 0.35s;
+  }
+  .card__more:active { transform: scale(0.98); }
+  .card__more i {
+    position: relative; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: #0b0b0b;
+    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s;
+  }
+  .card__more i::before {
+    content: ""; position: absolute; left: 50%; top: 44%; width: 7px; height: 7px;
+    border-right: 2px solid #fff; border-bottom: 2px solid #fff; transform: translate(-50%, -50%) rotate(45deg);
+    transition: border-color 0.35s;
+  }
+  .card.is-open .card__more { background: #0b0b0b; color: #fff; border-color: #0b0b0b; box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.6); }
+  .card.is-open .card__more i { transform: rotate(180deg); background: #fff; }
+  .card.is-open .card__more i::before { border-color: #0b0b0b; }
+
+  /* smooth height animation without measuring: 0fr → 1fr */
+  .card__extra { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.55s var(--ease); }
+  .card.is-open .card__extra { grid-template-rows: 1fr; }
+  .card__extra-inner { min-height: 0; overflow: hidden; }
+
+  /* details slide in one after another */
+  .card__extra .facts div, .card__extra .checks li { opacity: 0; translate: 0 10px; transition: opacity 0.35s ease, translate 0.5s var(--ease); }
+  .card.is-open .card__extra .facts div { opacity: 1; translate: none; transition-delay: 0.12s; }
+  .card.is-open .card__extra .checks li { opacity: 1; translate: none; }
+  .card.is-open .card__extra .checks li:nth-child(1) { transition-delay: 0.22s; }
+  .card.is-open .card__extra .checks li:nth-child(2) { transition-delay: 0.32s; }
+}
+@media (max-width: 720px) and (prefers-reduced-motion: reduce) {
+  .card__extra, .card__extra .facts div, .card__extra .checks li, .card__more, .card__more i { transition: none; }
+}

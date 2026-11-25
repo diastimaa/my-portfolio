@@ -320,6 +320,24 @@
     }
   }
 
+  /* ── Project cards: expandable "My role & features" panel on mobile ── */
+  const mobileMq = window.matchMedia('(max-width: 720px)');
+  document.querySelectorAll('.card__more').forEach((btn) => {
+    const card = btn.closest('.card');
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!card || !panel) return;
+    // while collapsed on mobile, the hidden details are skipped by keyboard and screen readers
+    const sync = () => { panel.inert = mobileMq.matches && !card.classList.contains('is-open'); };
+    btn.addEventListener('click', () => {
+      const open = !card.classList.contains('is-open');
+      card.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      sync();
+    });
+    mobileMq.addEventListener('change', sync);
+    sync();
+  });
+
   /* ── Footer year ── */
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
