@@ -1,43 +1,42 @@
-# Andrei Jovic Laurel — Portfolio
+# Andrei Jovic Laurel | Portfolio
 
-Personal portfolio of **Andrei Jovic Laurel**, a junior software developer building web and mobile applications.
-BS Information Technology graduate (Web Development), Holy Angel University.
+This is my personal portfolio. I'm a fresh BS Information Technology graduate from Holy Angel University, majoring in Web Development, and I build web and mobile applications.
 
-**Live site:** https://laurelportfolio.netlify.app/
+**Live site** https://laurelportfolio.netlify.app/
 
-![Portfolio hero: name, role and a 3D scene of a web dashboard and a phone profile](docs/hero.jpg)
+![Portfolio home section with my name, role and a 3D web and phone scene](docs/hero.jpg)
 
 ## What's inside
 
-| Section | Contents |
+| Section | What you'll find |
 | --- | --- |
-| **Home** | Introduction and a 3D web-and-mobile scene with my profile on a phone |
-| **About** | Background, studies and what I focus on as a developer |
-| **Experience** | Software Development Intern, Mekeni ICT Department (Aug – Nov 2026) |
-| **Skills** | Languages, web, mobile, backend, data and tools |
-| **Projects** | Mekeni Sales (Flutter), Customer Mapping (Laravel), MedFind (Angular), Owens Bakery (WordPress) |
-| **Education** | BS Information Technology and certifications |
-| **Contact** | Contact details and a message form |
+| **Home** | A short introduction and a 3D web and mobile scene with my profile |
+| **About** | My background and my journey from school to my internship |
+| **Experience** | Software Development Intern at the Mekeni ICT Department (Aug to Nov 2026) |
+| **Skills** | The languages, frameworks and tools I have used |
+| **Projects** | Mekeni Sales, Customer Mapping, MedFind and Owens Bakery |
+| **Education** | My degree and certifications |
+| **Contact** | My contact details and a message form |
 
 ## Featured projects
 
-- **Mekeni Sales** — Flutter mobile app with a company app dashboard, sales orders that work offline and sync later, and an Employee Portal. Team project at Mekeni ICT.
-- **Customer Mapping** — Laravel / AngularJS web tool for customer outlets, map pins, visit itineraries and sales monitoring. Team project at Mekeni ICT.
-- **MedFind** — Pharmacy system with medicine finder, inventory, POS and IndexedDB offline sync. Front-end developer and primary debugger. [Live site](https://www.motherandchildpharmacy.com/)
-- **Owens Bakery Shop** — WordPress business website with SEO and analytics.
+- **Mekeni Sales** is a Flutter mobile app with a company app dashboard, sales orders that work offline and sync later, and an Employee Portal. I worked on it with the Mekeni ICT team.
+- **Customer Mapping** is a Laravel and AngularJS web tool for customer outlets, map pins, visit plans and sales monitoring. I worked on it with the Mekeni ICT team.
+- **MedFind** is a pharmacy system with a medicine finder, inventory, POS and IndexedDB offline sync. I was the front-end developer and main debugger. [Visit the live site](https://www.motherandchildpharmacy.com/)
+- **Owens Bakery Shop** is a WordPress business website where I handled the pages, SEO and analytics.
 
 ## Built with
 
-- HTML, CSS and vanilla JavaScript — no framework or build step
-- CSS 3D transforms for the hero scene, card tilt and scroll effects
+- HTML, CSS and plain JavaScript with no framework or build step
+- CSS 3D transforms for the home scene, card tilt and scroll effects
 - [Formspree](https://formspree.io/) for the contact form
-- Google Fonts: Instrument Serif, Inter Tight, JetBrains Mono
+- Google Fonts (Instrument Serif, Inter Tight and JetBrains Mono)
 
-The site is responsive and respects the visitor's *reduce motion* setting.
+The site works on phones, tablets and desktops, and it respects the reduce motion setting.
 
-## Run locally
+## Run it locally
 
-Open `index.html` in a browser, or serve the folder with any static server, for example:
+Open `index.html` in a browser, or serve the folder with any static server.
 
 ```bash
 npx serve .
@@ -48,7 +47,7 @@ npx serve .
 ```
 index.html            Page content
 assets/styles.css     Styles
-assets/main.js        Navigation, 3D effects, screenshot tabs, contact form
+assets/main.js        Navigation, 3D effects, screenshot tabs and contact form
 cv/                   Resume (PDF)
 images/profile/       Profile photos
 images/projects/      Project screenshots, one folder per project
@@ -57,5 +56,5 @@ docs/                 Images used in this README
 
 ## Contact
 
-- Email: andrei.laurel.3@gmail.com
-- GitHub: [@diastimaa](https://github.com/diastimaa)
+- Email at [andrei.laurel.3@gmail.com](mailto:andrei.laurel.3@gmail.com)
+- GitHub at [@diastimaa](https://github.com/diastimaa)
