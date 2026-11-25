@@ -193,7 +193,7 @@
     scrollEls.forEach((el) => {
       const r = el.getBoundingClientRect();
       let p;
-      if (el.matches('.xp__list, [data-words]')) {
+      if (el.matches('.xp__list, [data-words], .journey')) {
         // reading progress: starts when the top reaches 80% of the screen, ends when the bottom reaches 55%
         p = (vh * 0.8 - r.top) / (r.height + vh * 0.25);
       } else {
@@ -202,6 +202,10 @@
       }
       p = Math.max(0, Math.min(1, p));
       el.style.setProperty('--sp', p.toFixed(3));
+      if (el.classList.contains('journey')) {
+        const steps = el.querySelectorAll('.journey__step');
+        steps.forEach((s, i) => s.classList.toggle('is-lit', p * steps.length > i + 0.15));
+      }
       if (el === lead) {
         const lit = Math.round(p * words.length);
         words.forEach((w, i) => w.classList.toggle('is-lit', i < lit));
@@ -212,6 +216,7 @@
   if (reduceMotion) {
     scrollEls.forEach((el) => el.style.setProperty('--sp', '1'));
     xpItems.forEach((li) => li.classList.add('is-lit'));
+    document.querySelectorAll('.journey__step').forEach((s) => s.classList.add('is-lit'));
   } else {
     let ticking = false;
     const onScrollFx = () => {

@@ -725,3 +725,53 @@ img.is-swapping { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
   .dev-phone__shine, .orbit, .orbit-chip { animation: none !important; }
 }
+
+/* ==========================================================
+   About: "My journey" timeline (line draws on scroll, dots light up)
+   ========================================================== */
+.journey-wrap { margin-top: clamp(36px, 5vw, 56px); }
+.journey__label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 18px; }
+.journey__label::before { content: ""; width: 18px; height: 2px; background: var(--red); }
+.journey { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; }
+.journey::before, .journey::after { content: ""; position: absolute; left: 0; top: 8px; height: 2px; border-radius: 2px; }
+.journey::before { right: 0; background: var(--line-2); }
+.journey::after { width: calc(var(--sp, 0) * 100%); background: linear-gradient(90deg, var(--fg), #444); transition: width 0.15s linear; }
+.journey__step { position: relative; display: flex; flex-direction: column; gap: 4px; padding-top: 32px; opacity: 0.4; translate: 0 10px; transition: opacity 0.6s var(--ease), translate 0.6s var(--ease); }
+.journey__step.is-lit { opacity: 1; translate: none; }
+.journey__dot {
+  position: absolute; left: 0; top: 1px; z-index: 1; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--card, #fff); border: 2px solid var(--line-2);
+  transition: background 0.4s, border-color 0.4s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+}
+.journey__step.is-lit .journey__dot { background: var(--fg); border-color: var(--fg); transform: scale(1.15); box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.07); }
+.journey__step--now.is-lit .journey__dot { background: var(--red); border-color: var(--red); animation: nowPulse 2.2s ease-out infinite; }
+@keyframes nowPulse { 0% { box-shadow: 0 0 0 0 rgba(229, 36, 43, 0.45); } 100% { box-shadow: 0 0 0 14px rgba(229, 36, 43, 0); } }
+.journey__when { font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
+.journey__step b { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 2vw, 27px); line-height: 1.1; color: var(--fg); }
+.journey__sub { font-size: 14.5px; line-height: 1.45; color: var(--fg-2); }
+.journey-wrap + .about__points { margin-top: clamp(28px, 4vw, 44px); }
+
+@media (max-width: 720px) {
+  .journey-wrap { margin-top: 30px; }
+  .journey { grid-template-columns: 1fr; gap: 0; padding-left: 30px; }
+  .journey::before, .journey::after { left: 7px; top: 8px; width: 2px; height: auto; }
+  .journey::before { right: auto; bottom: 12px; }
+  .journey::after { height: calc(var(--sp, 0) * (100% - 20px)); bottom: auto; background: linear-gradient(180deg, var(--fg), #444); transition: height 0.15s linear; }
+  .journey__step { padding: 0 0 16px; gap: 1px; translate: 10px 0; }
+  .journey__step:last-child { padding-bottom: 0; }
+  .journey__dot { left: -30px; top: 2px; }
+  .journey__step b { font-size: 21px; }
+  .journey__sub { font-size: 14px; }
+  .journey__when { font-size: 11.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey__step { opacity: 1; translate: none; }
+  .journey::after { width: 100%; }
+}
+@media (max-width: 720px) {
+  /* compact rows: date on the left, milestone on the right */
+  .journey__step { display: grid; grid-template-columns: 88px 1fr; column-gap: 10px; row-gap: 0; padding-bottom: 14px; align-items: baseline; }
+  .journey__when { grid-row: 1 / span 2; font-size: 11px; line-height: 1.4; padding-top: 4px; }
+  .journey__step b { font-size: 19px; }
+  .journey__sub { font-size: 13.5px; line-height: 1.4; }
+}
