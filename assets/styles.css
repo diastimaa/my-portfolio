@@ -775,3 +775,8 @@ img.is-swapping { opacity: 0; }
   .journey__step b { font-size: 19px; }
   .journey__sub { font-size: 13.5px; line-height: 1.4; }
 }
+@media (max-width: 720px) {
+  .card .tags { gap: 6px; }
+  .card .tags li { font-size: 12.5px; padding: 3px 10px; }
+  .card__desc { margin: 10px 0 14px; font-size: 15.5px; }
+}
