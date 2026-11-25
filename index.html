@@ -164,7 +164,7 @@
         <span class="xp__org">Mekeni</span>
         <span class="xp__type">ICT Department · Internship</span>
       </div>
-      <div class="xp__main">
+      <div class="xp__main" data-more>
         <h3 class="xp__role">Software Development Intern</h3>
         <p class="xp__sub">Web &amp; mobile application development</p>
         <p class="xp__intro">
@@ -178,6 +178,7 @@
           <li><span>Worked on data processing, including improvements to the STT data import used for sales monitoring.</span></li>
           <li><span>Helped with testing and debugging to make the apps easier to use and more reliable.</span></li>
         </ol>
+        <button type="button" class="more-btn more-btn--list" aria-expanded="false" data-label-open="Show less"><span>Show all 6 contributions</span><i aria-hidden="true"></i></button>
         <ul class="tags" aria-label="Technologies">
           <li>Laravel</li><li>PHP</li><li>Blade</li><li>AngularJS</li><li>JavaScript</li><li>Flutter</li><li>Dart</li><li>REST APIs</li>
         </ul>
@@ -226,11 +227,16 @@
             A mobile app for Mekeni staff with a dashboard of company applications, sales order creation and monitoring, and an Employee Portal for personal records. Orders can be prepared on the phone and synced to Mekeni's systems later.
           </p>
         </div>
-        <div>
-          <dl class="facts reveal">
+        <div class="story__more reveal" data-more>
+          <button type="button" class="more-btn" aria-expanded="false" aria-controls="mekeni-more"><span>My role, features &amp; tech</span><i aria-hidden="true"></i></button>
+          <div class="more-panel" id="mekeni-more">
+            <div class="more-panel__inner">
+              <dl class="facts">
             <div><dt>My role</dt><dd>I started the app and built its first version with the ICT team, including the structure, navigation and main dashboard. I then worked on the sales order and Employee Portal features.</dd></div>
           </dl>
-          <ul class="tags reveal"><li>Flutter</li><li>Dart</li><li>REST APIs</li></ul>
+              <ul class="tags"><li>Flutter</li><li>Dart</li><li>REST APIs</li></ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -284,18 +290,23 @@
           <p class="story__desc reveal">
             A web tool for managing customer outlets, seeing where they are on a map, planning visits and monitoring related sales.
           </p>
-          <ul class="checks reveal">
+        </div>
+        <div class="story__more reveal" data-more>
+          <button type="button" class="more-btn" aria-expanded="false" aria-controls="mapping-more"><span>My role, features &amp; tech</span><i aria-hidden="true"></i></button>
+          <div class="more-panel" id="mapping-more">
+            <div class="more-panel__inner">
+              <dl class="facts">
+            <div><dt>My role</dt><dd>I started the project and helped the team build it. I worked on the customer, map, itinerary and sales monitoring features.</dd></div>
+          </dl>
+              <ul class="checks">
             <li>Parent-and-child customer management</li>
             <li>Outlet details and map pins</li>
             <li>Visit scheduling and itinerary planning</li>
             <li>GPS-based visit recording and sales monitoring</li>
           </ul>
-        </div>
-        <div>
-          <dl class="facts reveal">
-            <div><dt>My role</dt><dd>I started the project and helped the team build it. I worked on the customer, map, itinerary and sales monitoring features.</dd></div>
-          </dl>
-          <ul class="tags reveal"><li>Laravel</li><li>JavaScript</li><li>AngularJS</li></ul>
+              <ul class="tags"><li>Laravel</li><li>JavaScript</li><li>AngularJS</li></ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -326,7 +337,7 @@
 
     <!-- PROJECT 3 + 4 -->
     <div class="pair">
-      <article class="card reveal" id="p-medfind" data-tilt="5">
+      <article class="card reveal" id="p-medfind" data-tilt="5" data-more>
         <a class="browser browser--sm" href="https://www.motherandchildpharmacy.com/" target="_blank" rel="noopener" aria-label="Open MedFind live site">
           <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>motherandchildpharmacy.com</span></div>
           <div class="browser__screen"><img src="images/projects/medfind/medfind-home.png" alt="MedFind pharmacy system interface" loading="lazy" /></div>
@@ -336,9 +347,9 @@
           <h3 class="card__title">MedFind</h3>
           <p class="story__kicker">Mother &amp; Child Pharmacy System</p>
           <p class="card__desc">A pharmacy system with a medicine finder, inventory management, point of sale and pre-orders.</p>
-          <button type="button" class="card__more" aria-expanded="false" aria-controls="medfind-more"><span>My role &amp; features</span><i aria-hidden="true"></i></button>
-          <div class="card__extra" id="medfind-more">
-            <div class="card__extra-inner">
+          <button type="button" class="more-btn" aria-expanded="false" aria-controls="medfind-more"><span>My role, features &amp; tech</span><i aria-hidden="true"></i></button>
+          <div class="more-panel" id="medfind-more">
+            <div class="more-panel__inner">
               <dl class="facts">
             <div><dt>My role</dt><dd>I was the front-end developer and main debugger. I designed, built, tested and fixed the system interface.</dd></div>
           </dl>
@@ -346,14 +357,14 @@
             <li>Medicine finder, inventory, POS and pre-order modules</li>
             <li>IndexedDB offline sync that catches up automatically when back online</li>
           </ul>
+              <ul class="tags"><li>Angular 18</li><li>Node.js</li><li>Express.js</li><li>MySQL</li><li>IndexedDB</li></ul>
             </div>
           </div>
-          <ul class="tags"><li>Angular 18</li><li>Node.js</li><li>Express.js</li><li>MySQL</li><li>IndexedDB</li></ul>
           <a class="link" href="https://www.motherandchildpharmacy.com/" target="_blank" rel="noopener">Visit live site ↗</a>
         </div>
       </article>
 
-      <article class="card reveal" id="p-owens" data-tilt="5">
+      <article class="card reveal" id="p-owens" data-tilt="5" data-more>
         <div class="browser browser--sm browser--muted">
           <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>owens bakery shop</span></div>
           <div class="browser__screen"><img src="images/projects/owens-bakery/owens-bakery-home.png" alt="Owens Bakery Shop website homepage" loading="lazy" /></div>
@@ -363,9 +374,9 @@
           <h3 class="card__title">Owens Bakery Shop</h3>
           <p class="story__kicker">Business website · WordPress</p>
           <p class="card__desc">A business website I developed and maintained, from page creation and content updates to responsive design and SEO.</p>
-          <button type="button" class="card__more" aria-expanded="false" aria-controls="owens-more"><span>My role &amp; features</span><i aria-hidden="true"></i></button>
-          <div class="card__extra" id="owens-more">
-            <div class="card__extra-inner">
+          <button type="button" class="more-btn" aria-expanded="false" aria-controls="owens-more"><span>My role, features &amp; tech</span><i aria-hidden="true"></i></button>
+          <div class="more-panel" id="owens-more">
+            <div class="more-panel__inner">
               <dl class="facts">
             <div><dt>My role</dt><dd>I built and maintained the site, improved its SEO and tracked how it performed.</dd></div>
           </dl>
@@ -373,9 +384,9 @@
             <li>Responsive pages and ongoing content updates</li>
             <li>SEO work tracked in Google Analytics and Search Console, contributing to more organic traffic</li>
           </ul>
+              <ul class="tags"><li>WordPress</li><li>SEO</li><li>Google Analytics</li><li>Search Console</li></ul>
             </div>
           </div>
-          <ul class="tags"><li>WordPress</li><li>SEO</li><li>Google Analytics</li><li>Search Console</li></ul>
         </div>
       </article>
     </div>
@@ -400,7 +411,7 @@
         <p class="edu__lang"><b>Languages</b> Filipino · English</p>
       </article>
 
-      <div class="certs reveal" data-tilt="5">
+      <div class="certs reveal" data-tilt="5" data-more>
         <h3>Certifications</h3>
         <ul>
           <li><span>Google Analytics Certification</span><em>Skillshop</em></li>
@@ -412,6 +423,7 @@
           <li><span>SEO</span><em>HubSpot Academy</em></li>
           <li><span>SEO II</span><em>HubSpot Academy</em></li>
         </ul>
+        <button type="button" class="more-btn more-btn--list" aria-expanded="false" data-label-open="Show less"><span>Show all 8 certifications</span><i aria-hidden="true"></i></button>
       </div>
     </div>
   </div>

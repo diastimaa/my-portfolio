@@ -802,11 +802,11 @@ img.is-swapping { opacity: 0; }
    Project cards: "My role & features" expandable panel (mobile)
    Desktop and tablet always show the details; the toggle is hidden.
    ========================================================== */
-.card__more { display: none; }
+.more-btn { display: none; }
 
 @media (max-width: 720px) {
   .pair { align-items: flex-start; }
-  .card__more {
+  .more-btn {
     display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%;
     margin: 0 0 12px; padding: 10px 10px 10px 16px; border-radius: 14px;
     border: 1px solid var(--line-2); background: #ffffff; color: var(--fg);
@@ -814,32 +814,91 @@ img.is-swapping { opacity: 0; }
     box-shadow: 0 8px 20px -14px rgba(0, 0, 0, 0.35);
     transition: background 0.35s var(--ease), color 0.35s, border-color 0.35s, transform 0.2s, box-shadow 0.35s;
   }
-  .card__more:active { transform: scale(0.98); }
-  .card__more i {
+  .more-btn:active { transform: scale(0.98); }
+  .more-btn i {
     position: relative; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: #0b0b0b;
     transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s;
   }
-  .card__more i::before {
+  .more-btn i::before {
     content: ""; position: absolute; left: 50%; top: 44%; width: 7px; height: 7px;
     border-right: 2px solid #fff; border-bottom: 2px solid #fff; transform: translate(-50%, -50%) rotate(45deg);
     transition: border-color 0.35s;
   }
-  .card.is-open .card__more { background: #0b0b0b; color: #fff; border-color: #0b0b0b; box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.6); }
-  .card.is-open .card__more i { transform: rotate(180deg); background: #fff; }
-  .card.is-open .card__more i::before { border-color: #0b0b0b; }
+  [data-more].is-open .more-btn { background: #0b0b0b; color: #fff; border-color: #0b0b0b; box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.6); }
+  [data-more].is-open .more-btn i { transform: rotate(180deg); background: #fff; }
+  [data-more].is-open .more-btn i::before { border-color: #0b0b0b; }
 
   /* smooth height animation without measuring: 0fr → 1fr */
-  .card__extra { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.55s var(--ease); }
-  .card.is-open .card__extra { grid-template-rows: 1fr; }
-  .card__extra-inner { min-height: 0; overflow: hidden; }
+  .more-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.55s var(--ease); }
+  [data-more].is-open .more-panel { grid-template-rows: 1fr; }
+  .more-panel__inner { min-height: 0; overflow: hidden; }
 
   /* details slide in one after another */
-  .card__extra .facts div, .card__extra .checks li { opacity: 0; translate: 0 10px; transition: opacity 0.35s ease, translate 0.5s var(--ease); }
-  .card.is-open .card__extra .facts div { opacity: 1; translate: none; transition-delay: 0.12s; }
-  .card.is-open .card__extra .checks li { opacity: 1; translate: none; }
-  .card.is-open .card__extra .checks li:nth-child(1) { transition-delay: 0.22s; }
-  .card.is-open .card__extra .checks li:nth-child(2) { transition-delay: 0.32s; }
+  .more-panel .facts div, .more-panel .checks li { opacity: 0; translate: 0 10px; transition: opacity 0.35s ease, translate 0.5s var(--ease); }
+  [data-more].is-open .more-panel .facts div { opacity: 1; translate: none; transition-delay: 0.12s; }
+  [data-more].is-open .more-panel .checks li { opacity: 1; translate: none; }
+  [data-more].is-open .more-panel .checks li:nth-child(1) { transition-delay: 0.22s; }
+  [data-more].is-open .more-panel .checks li:nth-child(2) { transition-delay: 0.32s; }
 }
 @media (max-width: 720px) and (prefers-reduced-motion: reduce) {
-  .card__extra, .card__extra .facts div, .card__extra .checks li, .card__more, .card__more i { transition: none; }
+  .more-panel, .more-panel .facts div, .more-panel .checks li, .more-btn, .more-btn i { transition: none; }
+}
+
+/* ==========================================================
+   Reusable dropdowns (mobile): stories, experience list, certifications
+   ========================================================== */
+.more-btn:focus:not(:focus-visible) { outline: none; }
+
+@media (max-width: 720px) {
+  /* Stories (Mekeni Sales, Customer Mapping): same tinted role box and tight list as the cards */
+  .story__more .facts { border-top: 0; margin: 0 0 12px; }
+  .story__more .facts div { display: block; padding: 10px 12px; border: 0; border-radius: 12px; background: rgba(11, 11, 11, 0.05); }
+  .story__more .facts dt { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 3px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
+  .story__more .facts dt::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+  .story__more .facts dd { font-size: 14.5px; line-height: 1.5; }
+  .story__more .checks { gap: 6px; margin: 0 0 14px; }
+  .story__more .checks li { font-size: 14px; line-height: 1.45; padding-left: 22px; }
+  .story__more .more-btn { margin-bottom: 10px; }
+  .story__top { gap: 14px; }
+
+  /* tags inside a panel slide in last */
+  .more-panel .tags { opacity: 0; translate: 0 10px; transition: opacity 0.35s ease, translate 0.5s var(--ease); }
+  [data-more].is-open .more-panel .tags { opacity: 1; translate: none; transition-delay: 0.42s; }
+  .more-panel__inner { padding-bottom: 2px; }
+  .story__more .checks li:nth-child(3) { transition-delay: 0.38s; }
+  .story__more .checks li:nth-child(4) { transition-delay: 0.44s; }
+
+  /* Partial lists: Experience shows 3 of 6, Certifications shows 4 of 8 */
+  .xp__main:not(.is-open) .xp__list li:nth-child(n+4),
+  .certs:not(.is-open) li:nth-child(n+5) { display: none; }
+  .xp__main.is-open .xp__list li:nth-child(n+4),
+  .certs.is-open li:nth-child(n+5) { animation: moreIn 0.45s var(--ease) both; }
+  .xp__main.is-open .xp__list li:nth-child(5), .certs.is-open li:nth-child(6) { animation-delay: 0.06s; }
+  .xp__main.is-open .xp__list li:nth-child(6), .certs.is-open li:nth-child(7) { animation-delay: 0.12s; }
+  .certs.is-open li:nth-child(8) { animation-delay: 0.18s; }
+  @keyframes moreIn { from { opacity: 0; translate: 0 8px; } }
+  .certs:not(.is-open) li:nth-child(4) { border-bottom: 0; }
+  .more-btn--list { margin: 2px 0 18px; }
+  .certs .more-btn--list { margin: 12px 0 0; }
+  .more-btn--list i { transform: none; }
+  [data-more].is-open .more-btn--list i { transform: rotate(180deg); }
+
+  /* Dropdowns on dark sections: outlined when open instead of black on black */
+  .section:not(.section--light) .more-btn { box-shadow: none; border-color: transparent; }
+  .section:not(.section--light) [data-more].is-open .more-btn { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+  .section:not(.section--light) [data-more].is-open .more-btn i { background: #fff; }
+}
+@media (max-width: 720px) and (prefers-reduced-motion: reduce) {
+  .more-panel .tags { transition: none; }
+  .xp__main.is-open .xp__list li, .certs.is-open li { animation: none; }
+}
+@media (max-width: 720px) {
+  .section:not(.section--light) .more-btn { color: #0b0b0b; }
+}
+@media (max-width: 720px) {
+  /* Contact details: 2x2 grid, email on its own row */
+  .contact__list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; }
+  .contact__list div { padding: 10px 0; }
+  .contact__list div:first-child { grid-column: 1 / -1; }
+  .contact__lead { font-size: 24px; }
 }

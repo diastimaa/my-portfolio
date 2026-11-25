@@ -320,18 +320,23 @@
     }
   }
 
-  /* ── Project cards: expandable "My role & features" panel on mobile ── */
+  /* ── Dropdowns on mobile: role & features panels and "show all" lists ── */
   const mobileMq = window.matchMedia('(max-width: 720px)');
-  document.querySelectorAll('.card__more').forEach((btn) => {
-    const card = btn.closest('.card');
-    const panel = document.getElementById(btn.getAttribute('aria-controls'));
-    if (!card || !panel) return;
-    // while collapsed on mobile, the hidden details are skipped by keyboard and screen readers
-    const sync = () => { panel.inert = mobileMq.matches && !card.classList.contains('is-open'); };
+  document.querySelectorAll('.more-btn').forEach((btn) => {
+    const box = btn.closest('[data-more]');
+    if (!box) return;
+    const panelId = btn.getAttribute('aria-controls');
+    const panel = panelId ? document.getElementById(panelId) : null;
+    const label = btn.querySelector('span');
+    const closedText = label ? label.textContent : '';
+    const openText = btn.dataset.labelOpen || closedText;
+    // while collapsed on mobile, hidden panel content is skipped by keyboard and screen readers
+    const sync = () => { if (panel) panel.inert = mobileMq.matches && !box.classList.contains('is-open'); };
     btn.addEventListener('click', () => {
-      const open = !card.classList.contains('is-open');
-      card.classList.toggle('is-open', open);
+      const open = !box.classList.contains('is-open');
+      box.classList.toggle('is-open', open);
       btn.setAttribute('aria-expanded', String(open));
+      if (label) label.textContent = open ? openText : closedText;
       sync();
     });
     mobileMq.addEventListener('change', sync);
